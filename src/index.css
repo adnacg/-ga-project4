@@ -1,5 +1,34 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #a0c1b8;
+  color: #351f39;
+  /* for sticky bottom footer */
+  height: 100%;
+  position: relative;
 }
+
+main {
+  /* for sticky bottom footer */
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+footer {
+  /* for sticky bottom footer */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  line-height: 60px;
+}
+
+/*  #F4E8C1 - Ivory light beige
+ #A0C1B8 - Pastel light green
+ #709FB0 - Bolivia light blue
+ #726A95 - Pastel purple
+ #351F39 - Malbec dark redpurple */

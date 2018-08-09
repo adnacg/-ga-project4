@@ -1,0 +1,9 @@
+.myNav,
+.myNav ul a {
+  background-color: #709fb0;
+  color: #351f39;
+}
+
+.dropdownList li > a {
+  font-size: 0.8rem;
+}
