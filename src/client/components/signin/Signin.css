@@ -1,0 +1,48 @@
+.myTitle {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.mySignin {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.signinBtn {
+  margin-top: 1rem;
+}
+
+.signinBtn,
+.signinBtn:active,
+.signinBtn:focus {
+  background-color: #726a95;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  font-size: 1.2rem;
+}
+
+.signinBtn:hover {
+  background-color: #f4e8c1;
+  color: #726a95;
+  text-shadow: none;
+}
+
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default) {
+  border: 1px solid #726a95;
+  background-color: #f4e8c1;
+  border-radius: 5px;
+}
+
+.input-field input[type="text"]:focus + label,
+.input-field input[type="password"]:focus + label {
+  color: #351f39 !important;
+}
+
+.input-field input[type="text"]:focus,
+.input-field input[type="password"]:focus {
+  border-bottom: 1px solid #726a95 !important;
+  box-shadow: 0 1px 0 0 #726a95 !important;
+}

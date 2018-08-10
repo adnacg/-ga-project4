@@ -1,36 +1,30 @@
-.myHome {
+.myAdminTitle {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.myAdminSignin {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-top: 5rem;
 }
 
-.homeAction {
-  margin: 5rem;
+.adminSigninBtn {
+  margin-top: 1rem;
 }
 
-.homeBtn,
-.homeBtn:active,
-.homeBtn:focus {
-  margin: 1.8rem;
+.adminSigninBtn,
+.adminSigninBtn:active,
+.adminSigninBtn:focus {
   background-color: #726a95;
   color: #f4e8c1;
   text-shadow: 1px 1px 6px #000;
   font-size: 1.2rem;
-  width: 13rem;
-  height: 3rem;
 }
 
-.homeBtn:hover {
+.adminSigninBtn:hover {
   background-color: #f4e8c1;
   color: #726a95;
   text-shadow: none;
-}
-
-h3 {
-  font-weight: 700;
-}
-
-h6 {
-  font-weight: 600;
 }
