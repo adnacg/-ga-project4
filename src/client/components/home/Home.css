@@ -1,0 +1,39 @@
+.myHome {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.homeAction {
+  margin: 5rem;
+}
+
+.homeBtn {
+  margin: 2rem;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+h6 {
+  font-weight: 600;
+}
+
+.btn,
+.btn:focus,
+.btn:active {
+  background-color: #726a95;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  font-size: 1.2rem;
+  width: 13rem;
+  height: 3rem;
+}
+
+.btn:hover {
+  background-color: #f4e8c1;
+  color: #726a95;
+  text-shadow: none;
+}

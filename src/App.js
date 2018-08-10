@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row } from "react-materialize";
-import { Base } from "./components/layout/base/Base";
-import { Home } from "./components/home/Home";
+import { Base } from "./client/components/layout/base/Base";
+import { Home } from "./client/components/home/Home";
 
 class App extends Component {
   render() {
