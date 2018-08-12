@@ -1,0 +1,41 @@
+.cpTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.mainPanel {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.arrowUp,
+.arrowLeft,
+.arrowRight,
+.arrowDown,
+.emptyArrow {
+  width: 5rem;
+  height: 5rem;
+  background-color: #726a95;
+  border-radius: 10px;
+  line-height: 5rem;
+  color: #f4e8c1;
+}
+
+.emptyArrow {
+  background: transparent;
+}
+
+.arrowUp > .material-icons,
+.arrowLeft > .material-icons,
+.arrowRight > .material-icons,
+.arrowDown > .material-icons {
+  font-size: 5rem;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+}

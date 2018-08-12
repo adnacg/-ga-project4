@@ -5,7 +5,8 @@ import {
   Col,
   Navbar,
   NavItem,
-  Dropdown
+  Dropdown,
+  Icon
 } from "react-materialize";
 import "./Nav.css";
 
@@ -31,8 +32,23 @@ class Nav extends Component {
                 <NavItem>SAVOURY</NavItem>
                 <NavItem>BEVERAGE</NavItem>
               </Dropdown>
+              <Dropdown
+                trigger={<NavItem>MY ORDERS</NavItem>}
+                className="dropdownList"
+              >
+                <NavItem>TRACK ORDER</NavItem>
+                <NavItem>HISTORY</NavItem>
+              </Dropdown>
+              <Dropdown
+                trigger={<NavItem>PROFILE</NavItem>}
+                className="dropdownList"
+              >
+                <NavItem>SETTING</NavItem>
+                <NavItem>SIGN OUT</NavItem>
+              </Dropdown>
               <NavItem>SIGN IN</NavItem>
               <NavItem>REGISTER</NavItem>
+              <Icon>shopping_cart</Icon>
             </Container>
           </Navbar>
         </Row>

@@ -1,0 +1,70 @@
+.orderNowBtn {
+  margin-top: 1rem;
+}
+
+.orderNowBtn,
+.orderNowBtn:active,
+.orderNowBtn:focus {
+  background-color: #726a95;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  font-size: 1.2rem;
+}
+
+.orderNowBtn:hover {
+  background-color: #f4e8c1;
+  color: #726a95;
+  text-shadow: none;
+}
+
+.browseImg {
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+}
+
+.browseText {
+  height: 200px;
+  line-height: 100px;
+  float: right;
+  text-align: center;
+}
+
+.browseCatTitle {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.browseCat {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.brandDiv {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.brandImg {
+  width: 200px;
+  height: 200px;
+}
+
+.brandText {
+  text-align: center;
+  font-weight: 700;
+}
+
+.browseSeparator {
+  width: 80%;
+  border: 1px solid #726a95;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  float: left;
+}
+
+.catBtn {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

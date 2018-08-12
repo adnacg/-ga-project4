@@ -1,0 +1,26 @@
+.catTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.mainCatDiv {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.catBrandDiv {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.catBrandImg {
+  width: 200px;
+  height: 200px;
+}
+
+.catBrandText {
+  text-align: center;
+  font-weight: 700;
+}

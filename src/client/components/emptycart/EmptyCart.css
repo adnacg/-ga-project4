@@ -1,0 +1,35 @@
+.emptyCartDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.bigCart {
+  font-size: 200px;
+  transform: rotate(-20deg);
+}
+
+.bigQ {
+  transform: rotate(10deg);
+}
+
+.browseActBtnDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.browseActBtn,
+.browseActBtn:active,
+.browseActBtn:focus {
+  background-color: #726a95;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+}
+
+.browseActBtn:hover {
+  background-color: #f4e8c1;
+  color: #726a95;
+  text-shadow: none;
+}

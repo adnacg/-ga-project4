@@ -1,0 +1,66 @@
+.orderTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.mainOrderDiv {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.productDiv {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.productImgDiv {
+  width: 150px;
+  height: 150px;
+}
+
+.productImg {
+  width: 150px;
+  height: 150px;
+}
+
+.productDesc {
+  width: 150px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.productPrice {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.addToOrderBtnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addToOrderBtn,
+.addToOrderBtn:focus {
+  margin: 1rem;
+  background-color: #726a95;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  height: 2rem;
+  width: 2rem;
+}
+
+.addToOrderBtn:hover {
+  background-color: #726a95;
+}
+
+.btn-floating > .addToOrderIcon {
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #f4e8c1;
+}
