@@ -12,10 +12,23 @@ class Category extends Component {
   }
 
   componentDidMount = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
-    // const response = await fetch(`/api/category?search=${this.props.match.params.category}`);
-    const data = await response.json();
-    this.setState({ items: data.slice(0, 20) });
+    try {
+      // const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+      // const response = await fetch(`/api/category?search=${this.props.match.params.category}`);
+      const response = await fetch(
+        `http://localhost:5000/api/test?category=${
+          this.props.match.params.category
+        }`,
+        {
+          // credentials: "include"
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      this.setState({ items: data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
