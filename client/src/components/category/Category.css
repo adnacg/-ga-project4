@@ -2,6 +2,7 @@
   font-size: 2rem;
   font-weight: 900;
   text-align: center;
+  margin-top: 3rem;
 }
 
 .mainCatDiv {
@@ -15,12 +16,14 @@
   margin-right: 2.5rem;
 }
 
+.catBrandImgDiv,
 .catBrandImg {
   width: 200px;
   height: 200px;
 }
 
 .catBrandText {
+  width: 200px;
   text-align: center;
   font-weight: 700;
 }
