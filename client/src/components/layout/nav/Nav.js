@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   Container,
   Row,
-  Col,
   Navbar,
   NavItem,
   Dropdown,
@@ -22,7 +21,12 @@ class Nav extends Component {
                 <NavItem href="#">SNACKY</NavItem>
               </Link>
               <Dropdown
-                trigger={<NavItem>BROWSE</NavItem>}
+                trigger={
+                  <NavItem>
+                    BROWSE
+                    <Icon right>arrow_drop_down</Icon>
+                  </NavItem>
+                }
                 className="dropdownList"
               >
                 <Link to="/browse">
@@ -41,19 +45,33 @@ class Nav extends Component {
                 <NavItem>BEVERAGE</NavItem>
               </Dropdown>
               <Dropdown
-                trigger={<NavItem>MY ORDERS</NavItem>}
+                trigger={
+                  <NavItem>
+                    MY ORDERS
+                    <Icon right>arrow_drop_down</Icon>
+                  </NavItem>
+                }
                 className="dropdownList"
               >
-                <NavItem>TRACK ORDER</NavItem>
+                <Link to="/myorder">
+                  <NavItem>TRACK ORDER</NavItem>
+                </Link>
                 <Link to="/orders">
                   <NavItem>HISTORY</NavItem>
                 </Link>
               </Dropdown>
               <Dropdown
-                trigger={<NavItem>PROFILE</NavItem>}
+                trigger={
+                  <NavItem>
+                    PROFILE
+                    <Icon right>arrow_drop_down</Icon>
+                  </NavItem>
+                }
                 className="dropdownList"
               >
-                <NavItem>SETTING</NavItem>
+                <Link to="/profile">
+                  <NavItem>SETTING</NavItem>
+                </Link>
                 <NavItem>SIGN OUT</NavItem>
               </Dropdown>
               <Link to="/signin">
@@ -62,10 +80,25 @@ class Nav extends Component {
               <Link to="/register">
                 <NavItem>REGISTER</NavItem>
               </Link>
-              <Link to="/admin/control">
-                <NavItem>DASHBOARD</NavItem>
-              </Link>
-              <Link to="/cart">
+
+              <Dropdown
+                trigger={
+                  <NavItem>
+                    ADMIN
+                    <Icon right>arrow_drop_down</Icon>
+                  </NavItem>
+                }
+                className="dropdownList"
+              >
+                <Link to="/admin/orders">
+                  <NavItem>DASHBOARD</NavItem>
+                </Link>
+                <Link to="/admin/control">
+                  <NavItem>CONTROL</NavItem>
+                </Link>
+              </Dropdown>
+
+              <Link to="/mycart">
                 <Icon>shopping_cart</Icon>
               </Link>
             </Container>

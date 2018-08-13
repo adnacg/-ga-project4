@@ -1,0 +1,45 @@
+.adminOrderTitle {
+  margin-top: 3rem;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.adminOrderItems {
+  text-align: center;
+  width: 60%;
+  margin: 1.5rem auto;
+  border-radius: 5px;
+  color: #351f39;
+  background-color: #f4e8c1;
+}
+
+.orderActiveBtn,
+.orderActiveBtn:active,
+.orderActiveBtn:focus {
+  background-color: #726a95;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  font-size: 1rem;
+  margin: 1rem 1.5rem;
+}
+
+.orderActiveBtn:hover {
+  background-color: #726a95;
+  color: #f4e8c1;
+}
+
+.orderClosedBtnAdmin,
+.orderClosedBtnAdmin:active,
+.orderClosedBtnAdmin:focus {
+  background-color: #709fb0;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  font-size: 1rem;
+  margin: 1rem 1.5rem;
+}
+
+.orderClosedBtnAdmin:hover {
+  background-color: #709fb0;
+  color: #f4e8c1;
+}

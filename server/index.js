@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 // routes
 app.use("/api", router);
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) =>
+  res.send("This is my Express server, nothing to show yet.")
+);
 
 // start server
 const PORT = process.env.PORT || 5000;

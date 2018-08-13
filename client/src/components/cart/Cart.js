@@ -3,6 +3,8 @@ import { CardPanel } from "react-materialize";
 
 import "./Cart.css";
 
+// cart is used in orderpage, mycart, myorder, admincp
+
 class Cart extends Component {
   render() {
     return (
