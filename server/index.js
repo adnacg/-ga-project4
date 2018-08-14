@@ -1,9 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
-import router from "./routes/api";
 import cors from "cors";
 
 const app = express();
+const db = require("./db");
+
+import createApiRouter from "./routes/api";
+const api = createApiRouter(db);
 
 // middlewares
 app.use(
@@ -16,10 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // routes
-app.use("/api", router);
+app.use("/api", api);
 
 app.get("/", (req, res) =>
-  res.send("This is my Express server, nothing to show yet.")
+  res.send("This is my Express server, nothing to show at root.")
 );
 
 // start server

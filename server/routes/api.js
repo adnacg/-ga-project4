@@ -1,15 +1,13 @@
 import express from "express";
-import { log } from "util";
+import createApiControllers from "../controllers/api";
 
-const router = express.Router();
+const createApiRouter = db => {
+  const router = express.Router();
+  const ac = createApiControllers(db);
 
-router.get("/test", (req, res) => {
-  console.log(req.query);
+  router.get("/test", ac.testRead);
 
-  res.json([
-    { title: "Hello World3", thumbnailUrl: "example.com" },
-    { title: "Hello World2", thumbnailUrl: "example.com" }
-  ]);
-});
+  return router;
+};
 
-export default router;
+export default createApiRouter;
