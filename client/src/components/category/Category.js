@@ -13,17 +13,12 @@ class Category extends Component {
 
   componentDidMount = async () => {
     try {
-      // const response = await fetch("https://jsonplaceholder.typicode.com/photos");
       const response = await fetch(
-        `http://localhost:5000/api/test?category=${
+        `http://localhost:5000/api/category?category=${
           this.props.match.params.category
-        }`,
-        {
-          // credentials: "include"
-        }
+        }`
       );
       const data = await response.json();
-      console.log(data);
       this.setState({ items: data });
     } catch (error) {
       console.log(error);
@@ -35,10 +30,10 @@ class Category extends Component {
       <div className="catBrandDiv">
         <div className="z-depth-3 catBrandImgDiv">
           <Link to="/browse/chocolate/loacker/order">
-            <img src={item.thumbnailUrl} className="catBrandImg" />
+            <img src={item.img} className="catBrandImg" />
           </Link>
         </div>
-        <p className="catBrandText">{item.title}</p>
+        <p className="catBrandText">{item.name}</p>
       </div>
     ));
 
