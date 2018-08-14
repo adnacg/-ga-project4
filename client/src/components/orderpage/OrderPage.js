@@ -46,7 +46,9 @@ class OrderPage extends Component {
 
     return (
       <div>
-        <p className="orderTitle">BRAND NAME</p>
+        <p className="orderTitle">
+          {this.props.match.params.brand.toUpperCase()}
+        </p>
         <Row>
           <Col s={8} m={8}>
             <div className="mainOrderDiv">

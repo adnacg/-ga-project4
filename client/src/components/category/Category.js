@@ -39,7 +39,9 @@ class Category extends Component {
 
     return (
       <div>
-        <p className="catTitle">CHOCOLATE</p>
+        <p className="catTitle">
+          {this.props.match.params.category.toUpperCase()}
+        </p>
         <div className="mainCatDiv">
           {itemPreviews.length > 0 ? (
             itemPreviews

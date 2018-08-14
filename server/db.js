@@ -1,6 +1,5 @@
 const pg = require("pg");
 const url = require("url");
-const Sequelize = require("sequelize");
 
 // Initialise postgres client
 const dbUrl = process.env.DATABASE_URL;

@@ -12,6 +12,7 @@ let createApiControllers = db => {
       };
       let successCallback = rows => {
         response.json(rows);
+        console.log(rows);
       };
       Api.read(errorCallback, successCallback);
     },

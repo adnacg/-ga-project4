@@ -35,14 +35,30 @@ class Nav extends Component {
                 <Link to="/browse/chocolate">
                   <NavItem>CHOCOLATE</NavItem>
                 </Link>
-                <NavItem>CANDY</NavItem>
-                <NavItem>BISCUIT</NavItem>
-                <NavItem>COOKIE</NavItem>
-                <NavItem>CRACKER</NavItem>
-                <NavItem>MINT</NavItem>
-                <NavItem>GUMMY</NavItem>
-                <NavItem>SAVOURY</NavItem>
-                <NavItem>BEVERAGE</NavItem>
+                <Link to="/browse/candy">
+                  <NavItem>CANDY</NavItem>
+                </Link>
+                <Link to="/browse/biscuit">
+                  <NavItem>BISCUIT</NavItem>
+                </Link>
+                <Link to="/browse/cookie">
+                  <NavItem>COOKIE</NavItem>
+                </Link>
+                <Link to="/browse/cracker">
+                  <NavItem>CRACKER</NavItem>
+                </Link>
+                <Link to="/browse/mint">
+                  <NavItem>MINT</NavItem>
+                </Link>
+                <Link to="/browse/gummy">
+                  <NavItem>GUMMY</NavItem>
+                </Link>
+                <Link to="/browse/savoury">
+                  <NavItem>SAVOURY</NavItem>
+                </Link>
+                <Link to="/browse/beverage">
+                  <NavItem>BEVERAGE</NavItem>
+                </Link>
               </Dropdown>
               <Dropdown
                 trigger={
