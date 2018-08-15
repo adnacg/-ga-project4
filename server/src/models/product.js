@@ -19,14 +19,15 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
     Product.belongsToMany(models.Category, {
-      through: "CategoryProduct",
+      through: { model: models.CategoryProduct, unique: false },
       foreignKey: "productId"
     });
-    Product.belongsTo(models.User, {
-      foreignKey: "userId"
+    Product.belongsToMany(models.User, {
+      through: { model: models.UserProduct, unique: false },
+      foreignKey: "productId"
     });
     Product.belongsToMany(models.Order, {
-      through: "OrderProduct",
+      through: { model: models.OrderProduct, unique: false },
       foreignKey: "productId"
     });
   };

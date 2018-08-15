@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   Category.associate = function(models) {
     // associations can be defined here
     Category.belongsToMany(models.Product, {
-      through: "CategoryProduct",
+      through: { model: models.CategoryProduct, unique: false },
       foreignKey: "categoryId"
     });
   };

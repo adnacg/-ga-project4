@@ -1,142 +1,194 @@
 module.exports = [
   {
-    name: "",
-    email: "",
-    passwordHash: "",
-    address: "",
-    unit: "",
-    postal: "",
-    phone: "",
+    name: "Agatha",
+    email: "agatha@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "1 Claymore Hill",
+    unit: "#01-01",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Henckels",
+    email: "henckels@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "2 Claymore Hill",
+    unit: "#02-02",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Clotilde",
+    email: "clotilde@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "3 Claymore Hill",
+    unit: "#3-03",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Dmitri",
+    email: "dmitri@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "4 Claymore Hill",
+    unit: "#04-04",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Gustave",
+    email: "gustave@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "5 Claymore Hill",
+    unit: "#05-05",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Kovacs",
+    email: "kovacs@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "6 Claymore Hill",
+    unit: "#06-06",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Olivia",
+    email: "olivia@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "7 Claymore Hill",
+    unit: "#07-07",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Timothee",
+    email: "timothee@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "8 Claymore Hill",
+    unit: "#08-08",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Suzy",
+    email: "suzy@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: "9 Claymore Hill",
+    unit: "#09-09",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Lionel",
+    email: "lionel@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 10 Claymore Hill",
+    unit: "#10-10",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Jed",
+    email: "jed@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 11 Claymore Hill",
+    unit: "#11-11",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Becky",
+    email: "becky@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 12 Claymore Hill",
+    unit: "#12-12",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Rudy",
+    email: "rudy@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 13 Claymore Hill",
+    unit: "#13-13",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Edgar",
+    email: "edgar@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 14 Claymore Hill",
+    unit: "#14-14",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Dakota",
+    email: "dakota@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 15 Claymore Hill",
+    unit: "#15-15",
+    postal: "229572",
+    phone: "62223888",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "Noah",
+    email: "noah@gmail.com",
+    passwordHash:
+      "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    address: " 16 Claymore Hill",
+    unit: "#16-16",
+    postal: "229572",
+    phone: "62223888",
     createdAt: new Date(),
     updatedAt: new Date()
   }
 ];
-
-"Agatha",
-  "agatha@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "1 Claymore Hill",
-  "#01-01",
-  "229572",
-  "62223888",
-  "false";
-"Henckels",
-  "henckels@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "2 Claymore Hill",
-  "#02-02",
-  "229572",
-  "62223888",
-  "false";
-"Clotilde",
-  "clotilde@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "3 Claymore Hill",
-  "#3-03",
-  "229572",
-  "62223888",
-  "false";
-"Dmitri",
-  "dmitri@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "4 Claymore Hill",
-  "#04-04",
-  "229572",
-  "62223888",
-  "false";
-"Gustave",
-  "gustave@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "5 Claymore Hill",
-  "#05-05",
-  "229572",
-  "62223888",
-  "false";
-"Kovacs",
-  "kovacs@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "6 Claymore Hill",
-  "#06-06",
-  "229572",
-  "62223888",
-  "false";
-"Olivia",
-  "olivia@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "7 Claymore Hill",
-  "#07-07",
-  "229572",
-  "62223888",
-  "false";
-"Timothee",
-  "timothee@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "8 Claymore Hill",
-  "#08-08",
-  "229572",
-  "62223888",
-  "false";
-"Suzy",
-  "suzy@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "9 Claymore Hill",
-  "#09-09",
-  "229572",
-  "62223888",
-  "false";
-"Lionel",
-  "lionel@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "10 Claymore Hill",
-  "#10-10",
-  "229572",
-  "62223888",
-  "false";
-"Jed",
-  "jed@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "11 Claymore Hill",
-  "#11-11",
-  "229572",
-  "62223888",
-  "false";
-"Becky",
-  "becky@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "12 Claymore Hill",
-  "#12-12",
-  "229572",
-  "62223888",
-  "false";
-"Rudy",
-  "rudy@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "13 Claymore Hill",
-  "#13-13",
-  "229572",
-  "62223888",
-  "false";
-"Edgar",
-  "edgar@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "14 Claymore Hill",
-  "#14-14",
-  "229572",
-  "62223888",
-  "false";
-"Dakota",
-  "dakota@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "15 Claymore Hill",
-  "#15-15",
-  "229572",
-  "62223888",
-  "false";
-"Noah",
-  "noah@gmail.com",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "16 Claymore Hill",
-  "#16-16",
-  "229572",
-  "62223888",
-  "false";

@@ -1,6 +1,5 @@
 "use strict";
-
-const products = require("../seeds/product-seed.js");
+const users = require("../seeds/user-seed.js");
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -9,10 +8,12 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
+      return queryInterface.bulkInsert('Person', [{
+        name: 'John Doe',
+        isBetaMember: false
+      }], {});
     */
-    console.log(products);
-
-    return queryInterface.bulkInsert("Users", products, {});
+    return queryInterface.bulkInsert("Users", users, {});
   },
 
   down: (queryInterface, Sequelize) => {

@@ -29,6 +29,7 @@ app.get("/", (req, res) =>
 // start server
 const PORT = process.env.PORT || 5000;
 sequelize.sync().then(() => {
+  // sequelize.sync({ force: true }).then(() => {
   console.log("Test test test");
   User.findAll().then(users => console.log(users));
   app.listen(PORT, () =>
