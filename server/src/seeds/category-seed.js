@@ -1,46 +1,46 @@
 module.exports = [
   {
-    name: "Chocolate",
+    name: "chocolate",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Candy",
+    name: "candy",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Biscuit",
+    name: "biscuit",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Cookie",
+    name: "cookie",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Cracker",
+    name: "cracker",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Mint",
+    name: "mint",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Gummy",
+    name: "gummy",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Savoury",
+    name: "savoury",
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
-    name: "Beverage",
+    name: "beverage",
     createdAt: new Date(),
     updatedAt: new Date()
   }

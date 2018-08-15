@@ -1,7 +1,4 @@
 module.exports = [
-  // userId?
-  // order_product?
-  // category_product?
   {
     name: "WT Chocolate1",
     img:

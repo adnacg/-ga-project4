@@ -5,7 +5,8 @@ import db from "./models";
 
 const app = express();
 const sequelize = db.sequelize;
-const User = db.User;
+const Category = db.Category;
+const Brand = db.Brand;
 // import createApiRouter from "./routes/api";
 // const api = createApiRouter(db);
 
@@ -31,7 +32,29 @@ const PORT = process.env.PORT || 5000;
 sequelize.sync().then(() => {
   // sequelize.sync({ force: true }).then(() => {
   console.log("Test test test");
-  User.findAll().then(users => console.log(users));
+  Category.findOne({
+    where: {
+      name: "chocolate"
+    }
+  })
+    .then(category => {
+      if (category === null) {
+        return [];
+      } else {
+        return category.getProducts();
+      }
+    })
+    .then(products => {
+      const brandIds = products
+        .map(product => product.brandId)
+        .filter((brandId, index, self) => self.indexOf(brandId) === index);
+      const brandQueries = brandIds.map(brandId => Brand.findById(brandId));
+      Promise.all(brandQueries).then(brands =>
+        console.log(brands.map(brand => brand.name))
+      );
+    })
+    .catch(err => console.log(err));
+
   app.listen(PORT, () =>
     console.log(`~~~Express server listening on port ${PORT}~~~`)
   );

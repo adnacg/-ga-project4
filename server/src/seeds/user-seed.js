@@ -1,6 +1,6 @@
 module.exports = [
   {
-    name: "Agatha",
+    name: "agatha",
     email: "agatha@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -12,7 +12,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Henckels",
+    name: "henckels",
     email: "henckels@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -24,7 +24,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Clotilde",
+    name: "clotilde",
     email: "clotilde@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -36,7 +36,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Dmitri",
+    name: "dmitri",
     email: "dmitri@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -48,7 +48,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Gustave",
+    name: "gustave",
     email: "gustave@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -60,7 +60,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Kovacs",
+    name: "kovacs",
     email: "kovacs@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -72,7 +72,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Olivia",
+    name: "olivia",
     email: "olivia@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -84,7 +84,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Timothee",
+    name: "timothee",
     email: "timothee@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -96,7 +96,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Suzy",
+    name: "suzy",
     email: "suzy@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -108,7 +108,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Lionel",
+    name: "lionel",
     email: "lionel@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -120,7 +120,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Jed",
+    name: "jed",
     email: "jed@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -132,7 +132,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Becky",
+    name: "becky",
     email: "becky@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -144,7 +144,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Rudy",
+    name: "rudy",
     email: "rudy@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -156,7 +156,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Edgar",
+    name: "edgar",
     email: "edgar@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -168,7 +168,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Dakota",
+    name: "dakota",
     email: "dakota@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -180,7 +180,7 @@ module.exports = [
     updatedAt: new Date()
   },
   {
-    name: "Noah",
+    name: "noah",
     email: "noah@gmail.com",
     passwordHash:
       "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",

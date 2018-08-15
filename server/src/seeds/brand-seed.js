@@ -1,6 +1,6 @@
 module.exports = [
   {
-    name: "Whittakers",
+    name: "whittakers",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -8,7 +8,7 @@ module.exports = [
   },
 
   {
-    name: "Loacker",
+    name: "loacker",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -16,7 +16,7 @@ module.exports = [
   },
 
   {
-    name: "Michael Cluizel",
+    name: "michael cluizel",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -24,7 +24,7 @@ module.exports = [
   },
 
   {
-    name: "Lindt",
+    name: "lindt",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -32,7 +32,7 @@ module.exports = [
   },
 
   {
-    name: "Ritter Sport",
+    name: "ritter sport",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -40,7 +40,7 @@ module.exports = [
   },
 
   {
-    name: "Guylian",
+    name: "guylian",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -48,7 +48,7 @@ module.exports = [
   },
 
   {
-    name: "Nimm2",
+    name: "nimm2",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -56,7 +56,7 @@ module.exports = [
   },
 
   {
-    name: "Mrs Bridges",
+    name: "mrs bridges",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -64,7 +64,7 @@ module.exports = [
   },
 
   {
-    name: "Werthers Original",
+    name: "werthers original",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -72,7 +72,7 @@ module.exports = [
   },
 
   {
-    name: "Jelly Bean",
+    name: "jelly bean",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -80,7 +80,7 @@ module.exports = [
   },
 
   {
-    name: "Bourbon",
+    name: "bourbon",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -88,7 +88,7 @@ module.exports = [
   },
 
   {
-    name: "Morinaga",
+    name: "morinaga",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -96,7 +96,7 @@ module.exports = [
   },
 
   {
-    name: "Maretti",
+    name: "maretti",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -104,7 +104,7 @@ module.exports = [
   },
 
   {
-    name: "Delfi",
+    name: "delfi",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -112,7 +112,7 @@ module.exports = [
   },
 
   {
-    name: "Pocky",
+    name: "pocky",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -120,7 +120,7 @@ module.exports = [
   },
 
   {
-    name: "Meiji",
+    name: "meiji",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -128,7 +128,7 @@ module.exports = [
   },
 
   {
-    name: "Lotte",
+    name: "lotte",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -136,7 +136,7 @@ module.exports = [
   },
 
   {
-    name: "Kambly",
+    name: "kambly",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -144,7 +144,7 @@ module.exports = [
   },
 
   {
-    name: "Archway",
+    name: "archway",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -152,7 +152,7 @@ module.exports = [
   },
 
   {
-    name: "Oreo",
+    name: "oreo",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -160,7 +160,7 @@ module.exports = [
   },
 
   {
-    name: "Chips Ahoy",
+    name: "chips ahoy",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -168,7 +168,7 @@ module.exports = [
   },
 
   {
-    name: "Famous Amos",
+    name: "famous amos",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -176,7 +176,7 @@ module.exports = [
   },
 
   {
-    name: "Merba",
+    name: "merba",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -184,7 +184,7 @@ module.exports = [
   },
 
   {
-    name: "Hellema",
+    name: "hellema",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -192,7 +192,7 @@ module.exports = [
   },
 
   {
-    name: "Ritz",
+    name: "ritz",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -200,7 +200,7 @@ module.exports = [
   },
 
   {
-    name: "Nasco",
+    name: "nasco",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -208,7 +208,7 @@ module.exports = [
   },
 
   {
-    name: "Capeachios",
+    name: "capeachios",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -216,7 +216,7 @@ module.exports = [
   },
 
   {
-    name: "Jacobs",
+    name: "jacobs",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -224,7 +224,7 @@ module.exports = [
   },
 
   {
-    name: "Goldfish",
+    name: "goldfish",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -232,7 +232,7 @@ module.exports = [
   },
 
   {
-    name: "Munchys",
+    name: "munchys",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -240,7 +240,7 @@ module.exports = [
   },
 
   {
-    name: "Impact Mint",
+    name: "impact mint",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -248,7 +248,7 @@ module.exports = [
   },
 
   {
-    name: "Eclipse",
+    name: "eclipse",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -256,7 +256,7 @@ module.exports = [
   },
 
   {
-    name: "Mentos",
+    name: "mentos",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -264,7 +264,7 @@ module.exports = [
   },
 
   {
-    name: "Hudsons",
+    name: "hudsons",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -272,7 +272,7 @@ module.exports = [
   },
 
   {
-    name: "Altoids",
+    name: "altoids",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -280,7 +280,7 @@ module.exports = [
   },
 
   {
-    name: "Tic Tac",
+    name: "tic tac",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -288,7 +288,7 @@ module.exports = [
   },
 
   {
-    name: "Nimm2 Gummie",
+    name: "nimm2 gummie",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -296,7 +296,7 @@ module.exports = [
   },
 
   {
-    name: "Haribo",
+    name: "haribo",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -304,7 +304,7 @@ module.exports = [
   },
 
   {
-    name: "Albanese",
+    name: "albanese",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -312,7 +312,7 @@ module.exports = [
   },
 
   {
-    name: "Black Forest",
+    name: "black forest",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -320,7 +320,7 @@ module.exports = [
   },
 
   {
-    name: "The Natural",
+    name: "the natural",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -328,7 +328,7 @@ module.exports = [
   },
 
   {
-    name: "Skittles",
+    name: "skittles",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -336,7 +336,7 @@ module.exports = [
   },
 
   {
-    name: "Lays",
+    name: "lays",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -344,7 +344,7 @@ module.exports = [
   },
 
   {
-    name: "Ruffles",
+    name: "ruffles",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -352,7 +352,7 @@ module.exports = [
   },
 
   {
-    name: "Doritos",
+    name: "doritos",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -360,7 +360,7 @@ module.exports = [
   },
 
   {
-    name: "Kettles",
+    name: "kettles",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -368,7 +368,7 @@ module.exports = [
   },
 
   {
-    name: "Pringles",
+    name: "pringles",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -376,7 +376,7 @@ module.exports = [
   },
 
   {
-    name: "Tostitos",
+    name: "tostitos",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -384,7 +384,7 @@ module.exports = [
   },
 
   {
-    name: "Starbucks",
+    name: "starbucks",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -392,7 +392,7 @@ module.exports = [
   },
 
   {
-    name: "Coke",
+    name: "coke",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -400,7 +400,7 @@ module.exports = [
   },
 
   {
-    name: "Pepsi",
+    name: "pepsi",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -408,7 +408,7 @@ module.exports = [
   },
 
   {
-    name: "Lipton",
+    name: "lipton",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -416,7 +416,7 @@ module.exports = [
   },
 
   {
-    name: "Ayataka",
+    name: "ayataka",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
@@ -424,7 +424,7 @@ module.exports = [
   },
 
   {
-    name: "Cold Pressed Juices",
+    name: "cold pressed juices",
     img:
       "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
     createdAt: new Date(),
