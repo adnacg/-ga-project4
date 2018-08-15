@@ -28,10 +28,7 @@ class App extends Component {
               <Route path="/signin" component={Signin} />
               <Route path="/register" component={Register} />
               <Route path="/profile" component={Profile} />
-              <Route
-                path="/browse/:category/:brand/order"
-                component={OrderPage}
-              />
+              <Route path="/browse/:category/:brand" component={OrderPage} />
               <Route path="/browse/:category" component={Category} />
               <Route path="/browse" component={Browse} />
               <Route path="/mycart" component={MyCart} />
