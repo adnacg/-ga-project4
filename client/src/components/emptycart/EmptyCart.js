@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Row, Icon, Col } from "react-materialize";
+import { Icon } from "react-materialize";
+import { Link } from "react-router-dom";
 
 import "./EmptyCart.css";
 
@@ -13,9 +14,12 @@ class EmptyCart extends Component {
         </div>
         <div className=" emptyCartDiv browseActBtnDiv">
           <div>Uh oh... seems like your cart is empty.</div>
-          <a className="waves-effect waves-light btn browseActBtn">
+          <Link
+            to="/browse"
+            className="waves-effect waves-light btn browseActBtn"
+          >
             Browse For Snacks
-          </a>
+          </Link>
         </div>
       </div>
     );

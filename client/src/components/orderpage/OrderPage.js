@@ -51,7 +51,7 @@ class OrderPage extends Component {
     }
   };
 
-  clickHandler = async (userId, product) => {
+  addToCartHandler = async (userId, product) => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/product?product_id=${
@@ -66,9 +66,37 @@ class OrderPage extends Component {
 
       if (success) {
         this.setState(({ cart }) => ({
-          cart: [...cart, { name: product.name, price: product.price }]
+          cart: [
+            ...cart,
+            { id: product.id, name: product.name, price: product.price }
+          ]
         }));
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  removeFromCartHandler = async (userId, product) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product?product_id=${
+          product.id
+        }`,
+        {
+          method: "DELETE"
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product`
+      );
+      const data = await response.json();
+      this.setState({ cart: data });
     } catch (error) {
       console.log(error);
     }
@@ -92,7 +120,13 @@ class OrderPage extends Component {
           </a>
         </div> */}
         <a
-          onClick={() => this.clickHandler(1, product)}
+          onClick={() =>
+            this.addToCartHandler(1, {
+              id: product.id,
+              name: product.name,
+              price: product.price
+            })
+          }
           className="btn-floating btn waves-effect waves-light addToOrderBtn"
         >
           <i className="material-icons addToOrderIcon">add</i>
@@ -117,7 +151,12 @@ class OrderPage extends Component {
           </Col>
 
           <Col s={4} m={4}>
-            <Cart cart={this.state.cart} user={this.state.user} />
+            <Cart
+              cart={this.state.cart}
+              user={this.state.user}
+              addToCartHandler={this.addToCartHandler}
+              removeFromCartHandler={this.removeFromCartHandler}
+            />
           </Col>
         </Row>
       </div>

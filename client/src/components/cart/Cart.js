@@ -6,8 +6,6 @@ import "./Cart.css";
 
 class Cart extends Component {
   render() {
-    console.log("Rendering Cart");
-
     const cart = this.props.cart;
 
     // pre-process the cart data for display
@@ -37,11 +35,29 @@ class Cart extends Component {
     // map filteredCart to markup
     const myCart = Object.keys(filteredCart).map(name => (
       <div key={name} className="cartItems">
-        <a className="btn-floating btn waves-effect waves-light addFromOrderBtn">
+        <a
+          onClick={() =>
+            this.props.removeFromCartHandler(this.props.user.id, {
+              id: filteredCart[name].id,
+              name: name,
+              price: filteredCart[name].price
+            })
+          }
+          className="btn-floating btn waves-effect waves-light addFromOrderBtn"
+        >
           <i className="material-icons addFromOrderIcon">remove</i>
         </a>
         {filteredCart[name].count}
-        <a className="btn-floating btn waves-effect waves-light addFromOrderBtn">
+        <a
+          onClick={() =>
+            this.props.addToCartHandler(this.props.user.id, {
+              id: filteredCart[name].id,
+              name: name,
+              price: filteredCart[name].price
+            })
+          }
+          className="btn-floating btn waves-effect waves-light addFromOrderBtn"
+        >
           <i className="material-icons addFromOrderIcon">add</i>
         </a>
         <span>
@@ -87,11 +103,11 @@ class Cart extends Component {
           </p>
         </div>
         <a class="waves-effect waves-light btn checkoutBtn">CHECKOUT</a>
-        <br />
+        {/* <br />
         <a class="waves-effect waves-light btn statusBtn">ON THE WAY...</a>
         <br />
         <a class="waves-effect waves-light btn statusBtn">ARRIVED!</a>
-        <p>Please collect your order from Snacky.</p>
+        <p>Please collect your order from Snacky.</p> */}
       </CardPanel>
     );
   }

@@ -5,6 +5,7 @@ const createApiRouter = db => {
   const router = express.Router();
   const ac = createApiControllers(db);
 
+  router.delete("/user/:id/product", ac.removeFromCart);
   router.post("/user/:id/product", ac.addToCart);
   router.get("/user/:id/product", ac.getCart);
   router.get("/user/:id", ac.getUser);

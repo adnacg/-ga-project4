@@ -77,14 +77,11 @@ let createApiControllers = db => {
     },
 
     addToCart: async (request, response) => {
-      console.log("Hye");
-
       const { id } = request.params;
       const { product_id } = request.query;
       if (id && product_id) {
         const user = await User.findById(id);
         const product = await Product.findById(product_id);
-        console.log("Gonna add relation");
 
         const feedback = await user.addProduct(product);
         if (feedback.length === 0) return response.json({ success: false });
@@ -93,12 +90,26 @@ let createApiControllers = db => {
       response.json({ success: false });
     },
 
+    removeFromCart: async (request, response) => {
+      const { id } = request.params;
+      const { product_id } = request.query;
+      if (id && product_id) {
+        const user = await User.findById(id);
+        const product = await Product.findById(product_id);
+
+        const feedback = await user.removeProduct(product);
+        return response.json({});
+      }
+      response.json({});
+    },
+
     getCart: async (request, response) => {
       const { id } = request.params;
       if (id) {
         const user = await User.findById(id);
         const cartRaw = await user.getProducts();
         const cart = cartRaw.map(item => ({
+          id: item.id,
           name: item.name,
           price: item.price
         }));
