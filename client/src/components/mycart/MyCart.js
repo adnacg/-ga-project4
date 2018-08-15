@@ -89,6 +89,40 @@ class MyCart extends Component {
     }
   };
 
+  checkoutHandler = async userId => {
+    // Send order creation request to backend
+    let success = false;
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/order`,
+        {
+          method: "POST"
+        }
+      );
+      const feedback = await response.json();
+      success = feedback.success;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // Send clear cart request to backend
+    if (!success) return;
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product`,
+        {
+          method: "DELETE"
+        }
+      );
+      success = await response.json().success;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // Redirect to track order
+    this.props.history.push("/myorder");
+  };
+
   render() {
     if (this.state.cart.length === 0) {
       return <EmptyCart />;
@@ -99,6 +133,7 @@ class MyCart extends Component {
             <p className="mycartTitle">My Cart</p>
             <Col s={12} m={6} offset={"m3"}>
               <Cart
+                checkoutHandler={this.checkoutHandler}
                 addToCartHandler={this.addToCartHandler}
                 removeFromCartHandler={this.removeFromCartHandler}
                 user={this.state.user}

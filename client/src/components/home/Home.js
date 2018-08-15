@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row } from "react-materialize";
+import { Link } from "react-router-dom";
 
 import "./Home.css";
 
@@ -11,8 +12,12 @@ class Home extends Component {
         <h6>DELIVER THE SNACKS YOU LOVE, WITH LOVE</h6>
         <Row class="homeAction">
           <p>Please sign in or register to continue.</p>
-          <a className="waves-effect waves-light btn homeBtn">SIGN IN</a>
-          <a class="waves-effect waves-light btn homeBtn">REGISTER</a>
+          <Link to="/signin" className="waves-effect waves-light btn homeBtn">
+            SIGN IN
+          </Link>
+          <Link to="/register" class="waves-effect waves-light btn homeBtn">
+            REGISTER
+          </Link>
         </Row>
       </div>
     );

@@ -1,7 +1,7 @@
 // import sha256 from "js-sha256";
 
 let createApiControllers = db => {
-  const { Category, Brand, Product, User } = db;
+  const { Category, Brand, Product, User, Order } = db;
 
   return {
     brandRead: (request, response) => {
@@ -91,8 +91,7 @@ let createApiControllers = db => {
     },
 
     removeFromCart: async (request, response) => {
-      const { id } = request.params;
-      const { product_id } = request.query;
+      const { id, product_id } = request.params;
       if (id && product_id) {
         const user = await User.findById(id);
         const product = await Product.findById(product_id);
@@ -132,6 +131,39 @@ let createApiControllers = db => {
         };
         response.json(user);
       }
+    },
+
+    createOrder: async (request, response) => {
+      const { id } = request.params;
+      if (id) {
+        const user = await User.findById(id);
+        const products = await user.getProducts();
+        const newOrder = await Order.create({
+          deliveryStatus: "Preparing",
+          userId: id
+        });
+        const feedback = await newOrder.setProducts(products);
+        if (feedback[0].length === 0) {
+          return response.json({ success: false });
+        } else {
+          return response.json({ success: true });
+        }
+      }
+      response.json({ success: false });
+    },
+
+    clearCart: async (request, response) => {
+      const { id } = request.params;
+      if (id) {
+        const user = await User.findById(id);
+        const feedback = await user.setProducts([]);
+        console.log(feedback);
+
+        // const product = await Product.findById(product_id);
+        // const feedback = await user.removeProduct(product);
+        return response.json({ success: true });
+      }
+      response.json({ success: false });
     }
   };
 };

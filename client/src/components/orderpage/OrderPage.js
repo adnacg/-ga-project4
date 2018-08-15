@@ -80,9 +80,7 @@ class OrderPage extends Component {
   removeFromCartHandler = async (userId, product) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product?product_id=${
-          product.id
-        }`,
+        `http://localhost:5000/api/user/${userId}/product/${product.id}`,
         {
           method: "DELETE"
         }
@@ -100,6 +98,40 @@ class OrderPage extends Component {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  checkoutHandler = async userId => {
+    // Send order creation request to backend
+    let success = false;
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/order`,
+        {
+          method: "POST"
+        }
+      );
+      const feedback = await response.json();
+      success = feedback.success;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // Send clear cart request to backend
+    if (!success) return;
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product`,
+        {
+          method: "DELETE"
+        }
+      );
+      success = await response.json().success;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // Redirect to track order
+    this.props.history.push("/myorder");
   };
 
   render() {
@@ -156,6 +188,7 @@ class OrderPage extends Component {
               user={this.state.user}
               addToCartHandler={this.addToCartHandler}
               removeFromCartHandler={this.removeFromCartHandler}
+              checkoutHandler={this.checkoutHandler}
             />
           </Col>
         </Row>

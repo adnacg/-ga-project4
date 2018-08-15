@@ -102,7 +102,12 @@ class Cart extends Component {
             <span className="cartPrices">$ {total}</span>
           </p>
         </div>
-        <a class="waves-effect waves-light btn checkoutBtn">CHECKOUT</a>
+        <a
+          onClick={() => this.props.checkoutHandler(this.props.user.id)}
+          class="waves-effect waves-light btn checkoutBtn"
+        >
+          CHECKOUT
+        </a>
         {/* <br />
         <a class="waves-effect waves-light btn statusBtn">ON THE WAY...</a>
         <br />
