@@ -27,6 +27,15 @@ footer {
   line-height: 60px;
 }
 
+.dropdown-content {
+  background-color: #709fb0;
+}
+
+.dropdown-content li > a:hover {
+  background-color: #709fb0;
+  color: #f4e8c1;
+}
+
 /*  #F4E8C1 - Ivory light beige
  #A0C1B8 - Pastel light green
  #709FB0 - Bolivia light blue

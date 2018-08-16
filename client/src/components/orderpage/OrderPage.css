@@ -47,10 +47,12 @@
 
 .addToOrderBtn,
 .addToOrderBtn:focus {
-  margin: 1rem;
-  background-color: #726a95;
-  color: #f4e8c1;
-  text-shadow: 1px 1px 6px #000;
+  float: right;
+  margin-top: -10rem;
+  margin-right: 0.5rem;
+  background-color: #f4e8c1;
+  color: #726a95;
+  text-shadow: 0.5px 0.5px #333;
   height: 2rem;
   width: 2rem;
 }
@@ -60,6 +62,12 @@
 }
 
 .btn-floating > .addToOrderIcon {
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #726a95;
+}
+
+.btn-floating > .addToOrderIcon:hover {
   font-size: 1rem;
   line-height: 2rem;
   color: #f4e8c1;

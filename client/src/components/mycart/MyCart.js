@@ -138,6 +138,7 @@ class MyCart extends Component {
                 removeFromCartHandler={this.removeFromCartHandler}
                 user={this.state.user}
                 cart={this.state.cart}
+                status="BUILDING"
               />
             </Col>
           </Row>

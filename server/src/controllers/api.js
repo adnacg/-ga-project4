@@ -146,7 +146,7 @@ let createApiControllers = db => {
         if (feedback[0].length === 0) {
           return response.json({ success: false });
         } else {
-          return response.json({ success: true });
+          return response.json({ success: true, orderId: newOrder.id });
         }
       }
       response.json({ success: false });
@@ -164,6 +164,51 @@ let createApiControllers = db => {
         return response.json({ success: true });
       }
       response.json({ success: false });
+    },
+
+    getActiveOrder: async (request, response) => {
+      const { id: userId } = request.params;
+      if (userId) {
+        console.log("Before DB call");
+        const order = await Order.findOne({
+          where: {
+            userId,
+            deliveryStatus: "Preparing"
+          }
+        });
+        console.log(order);
+        const products = await order.getProducts();
+        const orderProducts = products.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price
+        }));
+        response.json({ orderStatus: order.deliveryStatus, orderProducts });
+      }
+      response.json({});
+    },
+
+    getOrders: async (request, response) => {
+      const { id: userId } = request.params;
+      if (userId) {
+        const orders = await Order.findAll({
+          where: { userId: userId, deliveryStatus: "Closed" }
+        });
+        const history = await Promise.all(
+          orders.map(async order => {
+            const prods = await order.getProducts();
+            return {
+              date: `${order.createdAt.getDate()}/${order.createdAt.getMonth()}/${order.createdAt.getFullYear()}`,
+              products: prods.map(product => ({
+                name: product.name,
+                price: product.price
+              }))
+            };
+          })
+        );
+        response.json(history);
+      }
+      response.json({});
     }
   };
 };

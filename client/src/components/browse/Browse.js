@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./Browse.css";
 
@@ -11,7 +12,12 @@ class Browse extends Component {
         </div>
         <div className="browseText">
           <h3 className="headerTitle">LATEST ARRIVAL</h3>
-          <a className="waves-effect waves-light btn orderNowBtn">ORDER NOW</a>
+          <Link
+            to="/browse/chocolate/loacker"
+            className="waves-effect waves-light btn orderNowBtn"
+          >
+            ORDER NOW
+          </Link>
         </div>
 
         <p className="browseCatTitle">OUR TOP PICKS</p>
@@ -59,14 +65,44 @@ class Browse extends Component {
 
         <p className="browseCatTitle">MORE OPTIONS</p>
         <div className="browseCat">
-          <a class="waves-effect waves-light btn orderNowBtn catBtn">COOKIE</a>
-          <a class="waves-effect waves-light btn orderNowBtn catBtn">MINT</a>
-          <a class="waves-effect waves-light btn orderNowBtn catBtn">CRACKER</a>
-          <a class="waves-effect waves-light btn orderNowBtn catBtn">GUMMY</a>
-          <a class="waves-effect waves-light btn orderNowBtn catBtn">SAVOURY</a>
-          <a class="waves-effect waves-light btn orderNowBtn catBtn">
+          <Link
+            to="/browse/cookie"
+            class="waves-effect waves-light btn orderNowBtn catBtn"
+          >
+            COOKIE
+          </Link>
+          <Link
+            to="/browse/mint"
+            class="waves-effect waves-light btn orderNowBtn catBtn"
+          >
+            MINT
+          </Link>
+          <Link
+            to="/browse/cracker"
+            class="waves-effect waves-light btn orderNowBtn catBtn"
+          >
+            CRACKER
+          </Link>
+        </div>
+        <div className="browseCat">
+          <Link
+            to="/browse/gummy"
+            class="waves-effect waves-light btn orderNowBtn catBtn"
+          >
+            GUMMY
+          </Link>
+          <Link
+            to="/browse/savoury"
+            class="waves-effect waves-light btn orderNowBtn catBtn"
+          >
+            SAVOURY
+          </Link>
+          <Link
+            to="/browse/beverage"
+            class="waves-effect waves-light btn orderNowBtn catBtn"
+          >
             BEVERAGE
-          </a>
+          </Link>
         </div>
       </div>
     );

@@ -10,6 +10,8 @@ const createApiRouter = db => {
   router.post("/user/:id/product", ac.addToCart);
   router.get("/user/:id/product", ac.getCart);
   router.post("/user/:id/order", ac.createOrder);
+  router.get("/user/:id/orders", ac.getOrders);
+  router.get("/user/:id/order", ac.getActiveOrder);
   router.get("/user/:id", ac.getUser);
   router.get("/product", ac.productRead);
   router.get("/brand", ac.brandRead);

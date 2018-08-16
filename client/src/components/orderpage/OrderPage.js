@@ -103,6 +103,7 @@ class OrderPage extends Component {
   checkoutHandler = async userId => {
     // Send order creation request to backend
     let success = false;
+    let orderId;
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/order`,
@@ -111,6 +112,7 @@ class OrderPage extends Component {
         }
       );
       const feedback = await response.json();
+      orderId = feedback.orderId;
       success = feedback.success;
     } catch (error) {
       console.log(error);
@@ -139,6 +141,18 @@ class OrderPage extends Component {
       <div className="productDiv">
         <div className="z-depth-3 productImgDiv">
           <img src={product.img} className="productImg" />
+          <a
+            onClick={() =>
+              this.addToCartHandler(1, {
+                id: product.id,
+                name: product.name,
+                price: product.price
+              })
+            }
+            className="btn-floating btn waves-effect waves-light z-depth-5 addToOrderBtn"
+          >
+            <i className="material-icons addToOrderIcon">add</i>
+          </a>
         </div>
         <p className="productDesc">{product.name.toUpperCase()}</p>
         <p className="productPrice">$ {product.price}</p>
@@ -151,18 +165,6 @@ class OrderPage extends Component {
             <i className="material-icons addToOrderIcon">add</i>
           </a>
         </div> */}
-        <a
-          onClick={() =>
-            this.addToCartHandler(1, {
-              id: product.id,
-              name: product.name,
-              price: product.price
-            })
-          }
-          className="btn-floating btn waves-effect waves-light addToOrderBtn"
-        >
-          <i className="material-icons addToOrderIcon">add</i>
-        </a>
       </div>
     ));
 
@@ -184,6 +186,7 @@ class OrderPage extends Component {
 
           <Col s={4} m={4}>
             <Cart
+              status="BUILDING"
               cart={this.state.cart}
               user={this.state.user}
               addToCartHandler={this.addToCartHandler}

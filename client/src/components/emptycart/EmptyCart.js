@@ -12,7 +12,7 @@ class EmptyCart extends Component {
           <Icon className="bigCart">shopping_cart</Icon>
           <span className="bigCart bigQ">?</span>
         </div>
-        <div className=" emptyCartDiv browseActBtnDiv">
+        <div className="emptyCartDiv browseActBtnDiv">
           <div>Uh oh... seems like your cart is empty.</div>
           <Link
             to="/browse"

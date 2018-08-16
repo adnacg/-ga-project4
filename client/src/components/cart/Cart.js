@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { CardPanel } from "react-materialize";
 import "./Cart.css";
-
-// cart is used in orderpage, mycart, myorder, admincp
 
 class Cart extends Component {
   render() {
@@ -35,31 +33,37 @@ class Cart extends Component {
     // map filteredCart to markup
     const myCart = Object.keys(filteredCart).map(name => (
       <div key={name} className="cartItems">
-        <a
-          onClick={() =>
-            this.props.removeFromCartHandler(this.props.user.id, {
-              id: filteredCart[name].id,
-              name: name,
-              price: filteredCart[name].price
-            })
-          }
-          className="btn-floating btn waves-effect waves-light addFromOrderBtn"
-        >
-          <i className="material-icons addFromOrderIcon">remove</i>
-        </a>
-        {filteredCart[name].count}
-        <a
-          onClick={() =>
-            this.props.addToCartHandler(this.props.user.id, {
-              id: filteredCart[name].id,
-              name: name,
-              price: filteredCart[name].price
-            })
-          }
-          className="btn-floating btn waves-effect waves-light addFromOrderBtn"
-        >
-          <i className="material-icons addFromOrderIcon">add</i>
-        </a>
+        {this.props.status === "BUILDING" ? (
+          <Fragment>
+            <a
+              onClick={() =>
+                this.props.removeFromCartHandler(this.props.user.id, {
+                  id: filteredCart[name].id,
+                  name: name,
+                  price: filteredCart[name].price
+                })
+              }
+              className="btn-floating btn waves-effect waves-light addFromOrderBtn"
+            >
+              <i className="material-icons addFromOrderIcon">remove</i>
+            </a>
+            {filteredCart[name].count}
+            <a
+              onClick={() =>
+                this.props.addToCartHandler(this.props.user.id, {
+                  id: filteredCart[name].id,
+                  name: name,
+                  price: filteredCart[name].price
+                })
+              }
+              className="btn-floating btn waves-effect waves-light addFromOrderBtn"
+            >
+              <i className="material-icons addFromOrderIcon">add</i>
+            </a>{" "}
+          </Fragment>
+        ) : (
+          <Fragment>{filteredCart[name].count} x </Fragment>
+        )}
         <span>
           {name}
           <span className="cartItemPrices">$ {filteredCart[name].price}</span>
@@ -74,9 +78,9 @@ class Cart extends Component {
           {this.props.user.address} {this.props.user.unit}{" "}
           {this.props.user.postal}
         </p>
-        <p>
-          ESTIMATED ARRIVAL: <span className="lightText">{Date()}</span>
-        </p>
+        <p>ESTIMATED ARRIVAL:</p>
+        <p className="lightText">{Date()}</p>
+
         <p>Your Cart</p>
         <div className="cartSeparator" />
         {myCart}
@@ -102,17 +106,26 @@ class Cart extends Component {
             <span className="cartPrices">$ {total}</span>
           </p>
         </div>
-        <a
-          onClick={() => this.props.checkoutHandler(this.props.user.id)}
-          class="waves-effect waves-light btn checkoutBtn"
-        >
-          CHECKOUT
-        </a>
-        {/* <br />
-        <a class="waves-effect waves-light btn statusBtn">ON THE WAY...</a>
-        <br />
-        <a class="waves-effect waves-light btn statusBtn">ARRIVED!</a>
-        <p>Please collect your order from Snacky.</p> */}
+        {this.props.status === "BUILDING" ? (
+          <Fragment>
+            <a
+              onClick={() => this.props.checkoutHandler(this.props.user.id)}
+              class="waves-effect waves-light btn checkoutBtn"
+            >
+              CHECKOUT
+            </a>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <a class="btn statusBtn">
+              {this.props.status}
+              ...
+            </a>
+            {this.props.status === "Arrived" && (
+              <p>Please collect your order from Snacky.</p>
+            )}
+          </Fragment>
+        )}
       </CardPanel>
     );
   }
