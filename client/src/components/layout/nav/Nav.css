@@ -7,3 +7,8 @@
 .dropdownList li > a {
   font-size: 0.8rem;
 }
+
+.myNav ul li.brandName a {
+  font-size: 2rem;
+  font-weight: 900;
+}

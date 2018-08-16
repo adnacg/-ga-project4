@@ -6,6 +6,8 @@ let createApiControllers = db => {
   return {
     brandRead: (request, response) => {
       const { category } = request.query;
+      console.log(category);
+
       if (category) {
         // Retrieves all brands that have products from this specific category
         Category.findOne({

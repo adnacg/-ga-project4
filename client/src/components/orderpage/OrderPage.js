@@ -3,6 +3,8 @@ import { Row, Col } from "react-materialize";
 import { Cart } from "../cart/Cart";
 
 import "./OrderPage.css";
+import auth from "../../utils/auth";
+const fetch = auth.authFetch;
 
 class OrderPage extends Component {
   constructor() {
@@ -29,8 +31,7 @@ class OrderPage extends Component {
     }
 
     // Get current user cart
-    if (/* !userLoggedIn() */ false) return;
-    const userId = 1;
+    const userId = auth.getUserId();
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/product`
@@ -143,7 +144,7 @@ class OrderPage extends Component {
           <img src={product.img} className="productImg" />
           <a
             onClick={() =>
-              this.addToCartHandler(1, {
+              this.addToCartHandler(this.state.user.id, {
                 id: product.id,
                 name: product.name,
                 price: product.price

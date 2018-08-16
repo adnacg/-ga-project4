@@ -5,8 +5,6 @@ import db from "./models";
 
 const app = express();
 const sequelize = db.sequelize;
-import createApiRouter from "./routes/api";
-const api = createApiRouter(db);
 
 // middlewares
 app.use(
@@ -19,7 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // routes
-app.use("/api", api);
+import createApiRouter from "./routes/api";
+import createAuthRouter from "./routes/auth";
+import createAuthCheck from "./middlewares/auth-check";
+const apiRoutes = createApiRouter(db);
+const authRoutes = createAuthRouter(db);
+const authCheck = createAuthCheck(db);
+app.use("/api", authCheck, apiRoutes);
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) =>
   res.send("This is my Express server, nothing to show at root.")

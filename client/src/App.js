@@ -15,6 +15,7 @@ import { MyOrder } from "./components/myorder/MyOrder";
 import { Orders } from "./components/orders/Orders";
 import { AdminOrders } from "./components/adminorders/AdminOrders";
 import { ControlPanel } from "./components/controlpanel/ControlPanel";
+import { PrivateRoute } from "./components/privateroute/PrivateRoute";
 
 class App extends Component {
   render() {
@@ -27,15 +28,26 @@ class App extends Component {
               <Route path="/signin/admin" component={AdminSignin} />
               <Route path="/signin" component={Signin} />
               <Route path="/register" component={Register} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/browse/:category/:brand" component={OrderPage} />
-              <Route path="/browse/:category" component={Category} />
-              <Route path="/browse" component={Browse} />
-              <Route path="/mycart" component={MyCart} />
-              <Route path="/myorder" component={MyOrder} />
-              <Route path="/orders" component={Orders} />
-              <Route path="/admin/orders" component={AdminOrders} />
-              <Route path="/admin/control" component={ControlPanel} />
+              <PrivateRoute path="/profile" component={Profile} />
+              <PrivateRoute
+                path="/browse/:category/:brand"
+                component={OrderPage}
+              />
+              <PrivateRoute path="/browse/:category" component={Category} />
+              <PrivateRoute path="/browse" component={Browse} />
+              <PrivateRoute path="/mycart" component={MyCart} />
+              <PrivateRoute path="/myorder" component={MyOrder} />
+              <PrivateRoute path="/orders" component={Orders} />
+              <PrivateRoute
+                path="/admin/orders"
+                component={AdminOrders}
+                allowedRoles={["admin"]}
+              />
+              <PrivateRoute
+                path="/admin/control"
+                component={ControlPanel}
+                allowedRoles={["admin"]}
+              />
             </Switch>
           </Container>
         </Row>

@@ -4,6 +4,8 @@ import { Cart } from "../cart/Cart";
 import { EmptyCart } from "../emptycart/EmptyCart";
 
 import "./MyCart.css";
+import auth from "../../utils/auth";
+const fetch = auth.authFetch;
 
 class MyCart extends Component {
   constructor() {
@@ -16,8 +18,7 @@ class MyCart extends Component {
 
   componentDidMount = async () => {
     // Get current user cart
-    if (/* !userLoggedIn() */ false) return;
-    const userId = 1;
+    const userId = auth.getUserId();
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/product`
@@ -67,9 +68,7 @@ class MyCart extends Component {
   removeFromCartHandler = async (userId, product) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product?product_id=${
-          product.id
-        }`,
+        `http://localhost:5000/api/user/${userId}/product/${product.id}`,
         {
           method: "DELETE"
         }

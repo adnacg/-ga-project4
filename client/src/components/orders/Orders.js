@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { CardPanel } from "react-materialize";
 
 import "./Orders.css";
+import auth from "../../utils/auth";
+const fetch = auth.authFetch;
 
 class Orders extends Component {
   constructor() {
@@ -12,8 +14,7 @@ class Orders extends Component {
   }
 
   componentDidMount = async () => {
-    if (/* !userLoggedIn() */ false) return;
-    const userId = 1;
+    const userId = auth.getUserId();
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/orders`

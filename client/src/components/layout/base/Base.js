@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav } from "../nav/Nav";
+import Nav from "../nav/Nav";
 import { Foot } from "../footer/Footer";
 
 // import "materialize-css/dist/css/materialize.min.css";

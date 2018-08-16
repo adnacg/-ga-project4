@@ -66,7 +66,9 @@ class Cart extends Component {
         )}
         <span>
           {name}
-          <span className="cartItemPrices">$ {filteredCart[name].price}</span>
+          <span className="cartItemPrices">
+            $ {filteredCart[name].price.toFixed(2)}
+          </span>
         </span>
       </div>
     ));

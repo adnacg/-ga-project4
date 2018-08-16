@@ -3,6 +3,8 @@ import { Row, Col } from "react-materialize";
 import { Cart } from "../cart/Cart";
 
 import "./MyOrder.css";
+import auth from "../../utils/auth";
+const fetch = auth.authFetch;
 
 class MyOrder extends Component {
   constructor() {
@@ -16,8 +18,7 @@ class MyOrder extends Component {
 
   componentDidMount = async () => {
     // Get current user cart
-    if (/* !userLoggedIn() */ false) return;
-    const userId = 1;
+    const userId = auth.getUserId();
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/order`

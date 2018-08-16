@@ -2,9 +2,47 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./Browse.css";
+import auth from "../../utils/auth";
+const fetch = auth.authFetch;
 
 class Browse extends Component {
+  constructor() {
+    super();
+    this.state = {
+      items: []
+    };
+  }
+
+  fetchBrands = async props => {
+    try {
+      console.log("Before request");
+      const response = await fetch(
+        `http://localhost:5000/api/brand?category=chocolate`
+      );
+      console.log(response);
+
+      const data = await response.json();
+      this.setState({ items: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  componentDidMount = () => {
+    this.fetchBrands(this.props);
+  };
+
   render() {
+    const itemPreviews = this.state.items.map(item => (
+      <div className="catBrandDiv">
+        <div className="z-depth-3 catBrandImgDiv">
+          <Link to={`/browse/chocolate/${item.name}`}>
+            <img src={item.img} className="catBrandImg" />
+          </Link>
+        </div>
+        <p className="catBrandText">{item.name.toUpperCase()}</p>
+      </div>
+    ));
     return (
       <div>
         <div className="browseImg">
@@ -22,7 +60,15 @@ class Browse extends Component {
 
         <p className="browseCatTitle">OUR TOP PICKS</p>
 
-        <div className="browseCat">
+        <div className="mainCatDiv">
+          {itemPreviews.length > 0 ? (
+            itemPreviews
+          ) : (
+            <div>No items to display at the moment.</div>
+          )}
+        </div>
+
+        {/*<div className="browseCat">
           <div className="brandDiv">
             <div className="z-depth-3">
               <img src="/financier.png" className="brandImg" />
@@ -59,7 +105,7 @@ class Browse extends Component {
             </div>
             <p className="brandText">BRAND SIX</p>
           </div>
-        </div>
+        </div> */}
         <div className="browseSeparator" />
         <a class="waves-effect waves-light btn orderNowBtn">SEE MORE</a>
 
