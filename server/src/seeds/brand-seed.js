@@ -2,7 +2,7 @@ module.exports = [
   {
     name: "whittakers",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "http://www.panorama-magz.com/wp-content/uploads/2017/02/Whittaker’s-Chocolate.png",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -17,8 +17,7 @@ module.exports = [
 
   {
     name: "michael cluizel",
-    img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+    img: "http://hauteliving.com/wp-content/uploads/2011/02/25-Ganaches-2.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -26,15 +25,14 @@ module.exports = [
   {
     name: "lindt",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://qph.fs.quoracdn.net/main-qimg-7a357b842083c9d006592ce220c0b97c-c",
     createdAt: new Date(),
     updatedAt: new Date()
   },
 
   {
     name: "ritter sport",
-    img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+    img: "https://pbs.twimg.com/media/DWOc_2gW0AIjFt6.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -42,15 +40,14 @@ module.exports = [
   {
     name: "guylian",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://i.pinimg.com/originals/8d/13/73/8d1373caffef389bb9db83a54cd0c64a.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
 
   {
     name: "nimm2",
-    img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+    img: "http://www.nimm2.com/bundles/nimm2/img/share/nimm2-share.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -58,7 +55,7 @@ module.exports = [
   {
     name: "mrs bridges",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "http://www.pitmanberryhill.com/pbcms/wp-content/uploads/2016/03/sweet-jar-635.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -66,7 +63,7 @@ module.exports = [
   {
     name: "werthers original",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://www.storck.us/fileadmin/dam/US/01_teaser/werthers-original-TVC-image-us.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -74,7 +71,7 @@ module.exports = [
   {
     name: "jelly bean",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/71a08yjhRzL._SL1057_.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -82,23 +79,21 @@ module.exports = [
   {
     name: "bourbon",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://s14991.pcdn.co/wp-content/uploads/2016/07/Japan-Candy-Box_2016-06_00b.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
 
   {
     name: "morinaga",
-    img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+    img: "https://co.lnwfile.com/_/co/_raw/03/5j/2s.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
 
   {
     name: "maretti",
-    img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+    img: "http://marettibakery.com/images/og_maretti_we.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -114,7 +109,7 @@ module.exports = [
   {
     name: "pocky",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "http://www.shutupandtakemyyen.com/wp-content/uploads/2015/02/8-Flavours-of-Pocky.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -122,7 +117,7 @@ module.exports = [
   {
     name: "meiji",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://pbs.twimg.com/profile_images/2225562837/tumblr_lg60pzu8jE1qbp58to1_500_large.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -130,7 +125,7 @@ module.exports = [
   {
     name: "lotte",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://gw.alicdn.com/bao/uploaded/i3/TB1AmwGJXXXXXXaXXXXXXXXXXXX_!!0-item_pic.jpg",
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -138,7 +133,7 @@ module.exports = [
   {
     name: "kambly",
     img:
-      "https://www.loackerusa.com/uploads/pics/Home_Schokotafeln_Teaser_M_01.jpg",
+      "https://img.yumpu.com/9574979/1/358x358/geschenke-cadeaux-kambly.jpg?quality=85",
     createdAt: new Date(),
     updatedAt: new Date()
   },

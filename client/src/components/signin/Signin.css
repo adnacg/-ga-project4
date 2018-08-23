@@ -1,6 +1,6 @@
 .myTitle {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 1000;
 }
 
 .mySignin {
@@ -8,6 +8,11 @@
   flex-direction: column;
   text-align: center;
   margin-top: 5rem;
+}
+
+.regPrompt {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .signinBtn {
@@ -34,6 +39,7 @@ input[type="password"]:not(.browser-default) {
   border: 1px solid #726a95;
   background-color: #f4e8c1;
   border-radius: 5px;
+  padding-left: 1rem;
 }
 
 .input-field input[type="text"]:focus + label,

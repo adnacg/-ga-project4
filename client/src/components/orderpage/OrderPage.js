@@ -157,20 +157,11 @@ class OrderPage extends Component {
         </div>
         <p className="productDesc">{product.name.toUpperCase()}</p>
         <p className="productPrice">$ {product.price}</p>
-        {/* <div className="addToOrderBtnDiv">
-          <a className="btn-floating btn waves-effect waves-light addToOrderBtn">
-            <i className="material-icons addToOrderIcon">remove</i>
-          </a>
-          <p>0</p>
-          <a className="btn-floating btn waves-effect waves-light addToOrderBtn">
-            <i className="material-icons addToOrderIcon">add</i>
-          </a>
-        </div> */}
       </div>
     ));
 
     return (
-      <div>
+      <div className="orderPageDisplay">
         <p className="orderTitle">
           {this.props.match.params.brand.toUpperCase()}
         </p>
@@ -186,14 +177,16 @@ class OrderPage extends Component {
           </Col>
 
           <Col s={4} m={4}>
-            <Cart
-              status="BUILDING"
-              cart={this.state.cart}
-              user={this.state.user}
-              addToCartHandler={this.addToCartHandler}
-              removeFromCartHandler={this.removeFromCartHandler}
-              checkoutHandler={this.checkoutHandler}
-            />
+            <div className="orderpageCart">
+              <Cart
+                status="BUILDING"
+                cart={this.state.cart}
+                user={this.state.user}
+                addToCartHandler={this.addToCartHandler}
+                removeFromCartHandler={this.removeFromCartHandler}
+                checkoutHandler={this.checkoutHandler}
+              />
+            </div>
           </Col>
         </Row>
       </div>

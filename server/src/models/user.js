@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         unique: true
       },
       passwordHash: DataTypes.STRING,
-      address: DataTypes.STRING,
+      block: DataTypes.STRING,
+      level: DataTypes.STRING,
       unit: DataTypes.STRING,
-      postal: DataTypes.STRING,
       phone: DataTypes.STRING,
       role: DataTypes.STRING
     },

@@ -22,7 +22,7 @@ class Nav extends Component {
     return (
       <div>
         <Row>
-          <Navbar class="myNav">
+          <Navbar className="myNav">
             {auth.isAuthenticated() ? (
               <Container>
                 <Link to="/">
@@ -127,7 +127,7 @@ class Nav extends Component {
             ) : (
               <Container>
                 <Link to="/">
-                  <NavItem href="#">SNACKY</NavItem>
+                  <NavItem className="brandName">SNACKY</NavItem>
                 </Link>
 
                 <Link to="/signin">

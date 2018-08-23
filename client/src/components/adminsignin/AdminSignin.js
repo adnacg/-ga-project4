@@ -9,10 +9,12 @@ class AdminSignin extends Component {
       <div className="myAdminSignin">
         <Row>
           <Col s={12} m={8} l={6} offset="m2 l3">
-            <p class="myAdminTitle">ADMIN SIGN IN</p>
+            <p className="myAdminTitle">ADMIN SIGN IN</p>
             <Input s={12} label="Email" />
             <Input s={12} type="password" label="Password" />
-            <a class="waves-effect waves-light btn adminSigninBtn">SIGN IN</a>
+            <a className="waves-effect waves-light btn adminSigninBtn">
+              SIGN IN
+            </a>
           </Col>
         </Row>
       </div>

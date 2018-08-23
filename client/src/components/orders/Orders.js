@@ -47,12 +47,12 @@ class Orders extends Component {
           <p className="lightText">
             {order.products.map(product => (
               <span>
-                {filteredOrder[product.name].count} x{" "}
-                {filteredOrder[product.name].name},{" "}
+                {filteredOrder[product.name].name} x{" "}
+                {filteredOrder[product.name].count}{" "}
               </span>
             ))}
           </p>
-          <a class="btn orderClosedBtn">Closed</a>
+          <a className="btn orderClosedBtn">Closed</a>
         </CardPanel>
       );
     });

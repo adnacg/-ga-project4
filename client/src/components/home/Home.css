@@ -9,6 +9,10 @@
   margin: 5rem;
 }
 
+.homeAction p {
+  margin-bottom: 0rem;
+}
+
 .homeBtn,
 .homeBtn:active,
 .homeBtn:focus {
@@ -19,6 +23,7 @@
   font-size: 1.2rem;
   width: 13rem;
   height: 3rem;
+  line-height: 3rem;
 }
 
 .homeBtn:hover {
@@ -28,9 +33,10 @@
 }
 
 h3 {
-  font-weight: 700;
+  font-weight: 1000;
+  font-size: 3rem;
 }
 
 h6 {
-  font-weight: 600;
+  font-weight: 700;
 }

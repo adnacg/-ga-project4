@@ -9,7 +9,12 @@ const sequelize = db.sequelize;
 // middlewares
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5000"],
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5000",
+      "http://192.168.1.23:3000",
+      "http://10.193.240.204:3000"
+    ],
     credentials: true
   })
 );

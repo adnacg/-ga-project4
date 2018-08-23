@@ -1,17 +1,33 @@
-.orderNowBtn {
-  margin-top: 1rem;
+.browseBanner {
+  height: 15rem;
 }
 
-.orderNowBtn,
-.orderNowBtn:active,
-.orderNowBtn:focus {
+@media only screen and (max-width: 480px) {
+  .browseBanner {
+    height: 33rem;
+  }
+}
+
+.orderNowBtn {
+  margin-top: -2rem;
+}
+
+.orderActionBtn {
+  margin-top: 1rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+
+.orderActionBtn,
+.orderActionBtn:active,
+.orderActionBtn:focus {
   background-color: #726a95;
   color: #f4e8c1;
   text-shadow: 1px 1px 6px #000;
   font-size: 1.2rem;
 }
 
-.orderNowBtn:hover {
+.orderActionBtn:hover {
   background-color: #f4e8c1;
   color: #726a95;
   text-shadow: none;
@@ -25,14 +41,14 @@
 
 .browseText {
   height: 200px;
-  line-height: 100px;
   float: right;
   text-align: center;
 }
 
 .browseCatTitle {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 1000;
+  text-align: center;
 }
 
 .browseCat {
@@ -57,14 +73,43 @@
 }
 
 .browseSeparator {
-  width: 80%;
+  width: 70%;
   border: 1px solid #726a95;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  float: left;
+  margin: 2rem auto;
 }
 
 .catBtn {
   margin-left: 1rem;
   margin-right: 1rem;
+  width: 200px;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+
+.logoFeature {
+  width: 200px;
+  height: 70px;
+}
+
+.singleBrandDiv {
+  width: 200px;
+  display: inline-block;
+  margin: 0 2rem;
+}
+
+.brandsDiv {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.centerBtn {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  margin: 1rem auto;
+}
+
+.moreCatDiv {
+  margin-bottom: 3rem;
 }

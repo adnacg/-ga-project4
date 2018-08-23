@@ -77,8 +77,8 @@ class Cart extends Component {
       <CardPanel className="sideCart z-depth-3">
         <p>DELIVERING TO</p>
         <p className="lightText">
-          {this.props.user.address} {this.props.user.unit}{" "}
-          {this.props.user.postal}
+          Block {this.props.user.block} Level {this.props.user.level} Unit{" "}
+          {this.props.user.unit}
         </p>
         <p>ESTIMATED ARRIVAL:</p>
         <p className="lightText">{Date()}</p>
@@ -112,14 +112,14 @@ class Cart extends Component {
           <Fragment>
             <a
               onClick={() => this.props.checkoutHandler(this.props.user.id)}
-              class="waves-effect waves-light btn checkoutBtn"
+              className="waves-effect waves-light btn checkoutBtn"
             >
               CHECKOUT
             </a>
           </Fragment>
         ) : (
           <Fragment>
-            <a class="btn statusBtn">
+            <a className="btn statusBtn">
               {this.props.status}
               ...
             </a>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Input } from "react-materialize";
+import { Link } from "react-router-dom";
 import auth from "../../utils/auth";
 import _ from "lodash";
 
@@ -41,7 +42,7 @@ class Signin extends Component {
       <div className="mySignin">
         <Row>
           <Col s={12} m={8} l={6} offset="m2 l3">
-            <p class="myTitle">SIGN IN</p>
+            <p className="myTitle">SIGN IN</p>
             <Input
               s={12}
               label="Email"
@@ -56,12 +57,18 @@ class Signin extends Component {
               onChange={this.changeFormData}
             />
             <a
-              class="waves-effect waves-light btn signinBtn"
+              className="waves-effect waves-light btn signinBtn"
               onClick={this.handleSignIn}
             >
               SIGN IN
             </a>
-            <p>Don’t have an account? Register here.</p>
+            <p>
+              Don’t have an account? Register{" "}
+              <Link to="/register" className="regPrompt">
+                here
+              </Link>
+              .
+            </p>
           </Col>
         </Row>
       </div>

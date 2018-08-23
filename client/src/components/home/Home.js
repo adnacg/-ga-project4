@@ -10,12 +10,12 @@ class Home extends Component {
       <div className="myHome">
         <h3>WELCOME TO SNACKY</h3>
         <h6>DELIVER THE SNACKS YOU LOVE, WITH LOVE</h6>
-        <Row class="homeAction">
+        <Row className="homeAction">
           <p>Please sign in or register to continue.</p>
           <Link to="/signin" className="waves-effect waves-light btn homeBtn">
             SIGN IN
           </Link>
-          <Link to="/register" class="waves-effect waves-light btn homeBtn">
+          <Link to="/register" className="waves-effect waves-light btn homeBtn">
             REGISTER
           </Link>
         </Row>

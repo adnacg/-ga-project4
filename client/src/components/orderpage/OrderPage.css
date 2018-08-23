@@ -1,6 +1,6 @@
 .orderTitle {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 1000;
   text-align: center;
   margin-top: 3rem;
 }
@@ -29,7 +29,7 @@
 .productDesc {
   width: 150px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 1000;
   font-size: 0.8rem;
 }
 
@@ -71,4 +71,22 @@
   font-size: 1rem;
   line-height: 2rem;
   color: #f4e8c1;
+}
+
+@media only screen and (max-width: 768px) {
+  .orderpageCart {
+  }
+
+  .mainOrderDiv {
+    justify-content: center;
+  }
+
+  .orderPageDisplay > .row .col.s8 {
+    width: 100%;
+  }
+
+  .orderPageDisplay > .row .col.s4 {
+    width: 100%;
+    margin-left: 1rem;
+  }
 }

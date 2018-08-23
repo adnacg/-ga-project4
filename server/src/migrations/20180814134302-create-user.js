@@ -20,13 +20,13 @@ module.exports = {
         passwordHash: {
           type: Sequelize.STRING
         },
-        address: {
+        block: {
+          type: Sequelize.STRING
+        },
+        level: {
           type: Sequelize.STRING
         },
         unit: {
-          type: Sequelize.STRING
-        },
-        postal: {
           type: Sequelize.STRING
         },
         phone: {

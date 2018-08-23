@@ -78,6 +78,25 @@ let createApiControllers = db => {
       }
     },
 
+    orderRead: async (request, response) => {
+      const orders = await Order.findAll();
+      const history = await Promise.all(
+        orders.map(async order => {
+          const prods = await order.getProducts();
+          return {
+            id: order.id,
+            deliveryStatus: order.deliveryStatus,
+            date: `${order.createdAt.getDate()}/${order.createdAt.getMonth()}/${order.createdAt.getFullYear()}`,
+            products: prods.map(product => ({
+              name: product.name,
+              price: product.price
+            }))
+          };
+        })
+      );
+      response.json(history);
+    },
+
     addToCart: async (request, response) => {
       const { id } = request.params;
       const { product_id } = request.query;
@@ -126,9 +145,9 @@ let createApiControllers = db => {
           id: userRaw.id,
           email: userRaw.email,
           name: userRaw.name,
-          address: userRaw.address,
+          block: userRaw.block,
+          level: userRaw.level,
           unit: userRaw.unit,
-          postal: userRaw.postal,
           phone: userRaw.phone
         };
         response.json(user);

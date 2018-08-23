@@ -13,6 +13,7 @@ const createApiRouter = db => {
   router.get("/user/:id/orders", ac.getOrders);
   router.get("/user/:id/order", ac.getActiveOrder);
   router.get("/user/:id", ac.getUser);
+  router.get("/orders", ac.orderRead);
   router.get("/product", ac.productRead);
   router.get("/brand", ac.brandRead);
 
