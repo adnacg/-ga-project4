@@ -1,6 +1,6 @@
 .myTitle {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 1200;
 }
 
 .mySignin {
@@ -8,6 +8,11 @@
   flex-direction: column;
   text-align: center;
   margin-top: 5rem;
+}
+
+.regPrompt {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .signinBtn {
@@ -34,6 +39,7 @@ input[type="password"]:not(.browser-default) {
   border: 1px solid #726a95;
   background-color: #f4e8c1;
   border-radius: 5px;
+  padding-left: 1rem;
 }
 
 .input-field input[type="text"]:focus + label,
@@ -45,4 +51,8 @@ input[type="password"]:not(.browser-default) {
 .input-field input[type="password"]:focus {
   border-bottom: 1px solid #726a95 !important;
   box-shadow: 0 1px 0 0 #726a95 !important;
+}
+
+.input-field label:not(.label-icon).active {
+  color: #351f39;
 }

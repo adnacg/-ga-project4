@@ -861,12 +861,6 @@
 -- INSERT INTO order_product (order_id, product_id) VALUES('8','12') RETURNING *;
 -- INSERT INTO order_product (order_id, product_id) VALUES('8','12') RETURNING *;
 
-
-
-
-
-
-
 -- INSERT INTO order_product (order_id, product_id) VALUES('9','1') RETURNING *;
 -- INSERT INTO order_product (order_id, product_id) VALUES('9','1') RETURNING *;
 -- INSERT INTO order_product (order_id, product_id) VALUES('9','2') RETURNING *;

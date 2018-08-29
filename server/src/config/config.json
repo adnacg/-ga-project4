@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "elvera",
+    "password": null,
+    "database": "snacky_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "test": {
+    "username": "elvera",
+    "password": null,
+    "database": "snacky_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "production": {
+    "username": "elvera",
+    "password": null,
+    "database": "snacky_prod",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  }
+}

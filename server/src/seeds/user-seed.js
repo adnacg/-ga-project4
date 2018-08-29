@@ -1,0 +1,210 @@
+const bcrypt = require("bcryptjs");
+const salt = bcrypt.genSaltSync(10);
+const hash = bcrypt.hashSync("password", salt);
+
+module.exports = [
+  {
+    name: "adna",
+    email: "adna@gmail.com",
+    passwordHash: hash,
+    block: "1",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "admin",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "agatha",
+    email: "agatha@gmail.com",
+    passwordHash: hash,
+    block: "1",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "henckels",
+    email: "henckels@gmail.com",
+    passwordHash: hash,
+    block: "2",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "clotilde",
+    email: "clotilde@gmail.com",
+    passwordHash: hash,
+    block: "3",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "dmitri",
+    email: "dmitri@gmail.com",
+    passwordHash: hash,
+    block: "4",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "gustave",
+    email: "gustave@gmail.com",
+    passwordHash: hash,
+    block: "5",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "kovacs",
+    email: "kovacs@gmail.com",
+    passwordHash: hash,
+    block: "6",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "olivia",
+    email: "olivia@gmail.com",
+    passwordHash: hash,
+    block: "7",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "timothee",
+    email: "timothee@gmail.com",
+    passwordHash: hash,
+    block: "8",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "suzy",
+    email: "suzy@gmail.com",
+    passwordHash: hash,
+    block: "9",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "lionel",
+    email: "lionel@gmail.com",
+    passwordHash: hash,
+    block: " 10",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "jed",
+    email: "jed@gmail.com",
+    passwordHash: hash,
+    block: " 11",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "becky",
+    email: "becky@gmail.com",
+    passwordHash: hash,
+    block: " 12",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "rudy",
+    email: "rudy@gmail.com",
+    passwordHash: hash,
+    block: " 13",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "edgar",
+    email: "edgar@gmail.com",
+    passwordHash: hash,
+    block: " 14",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "dakota",
+    email: "dakota@gmail.com",
+    passwordHash: hash,
+    block: " 15",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    name: "noah",
+    email: "noah@gmail.com",
+    passwordHash: hash,
+    block: " 16",
+    level: "1",
+    unit: "88",
+    phone: "82226888",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+];
