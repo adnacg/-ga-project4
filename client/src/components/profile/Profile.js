@@ -9,30 +9,72 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      user: {}
+      user: {},
+      block: "",
+      level: "",
+      unit: "",
+      phone: ""
     };
   }
 
   componentDidMount = async () => {
     const userId = auth.getUserId();
-
     // Get current user
     try {
       const response = await fetch(`http://localhost:5000/api/user/${userId}`);
       const data = await response.json();
-      this.setState({ user: data });
+      this.setState({
+        user: data,
+        block: data.block,
+        level: data.level,
+        unit: data.unit,
+        phone: data.phone
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
-  changeProfileHandler(event) {
-    // on input change, set state
-  }
+  changeHandler = input => event => {
+    this.setState({
+      [input]: event.target.value
+    });
+  };
 
-  clickHandler() {
-    // if input.length > 0, update database
-  }
+  clickHandler = async () => {
+    const userId = auth.getUserId();
+    let validForm = true;
+
+    Object.values(this.state).forEach(value => {
+      if (value.length === 0) {
+        validForm = false;
+      }
+    });
+
+    if (validForm) {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/user/${userId}/update`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+          }
+        );
+        const { success } = await response.json();
+        if (!success) {
+          this.props.history.push("/browse");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Please fill in all fields.");
+    }
+  };
 
   render() {
     return (
@@ -44,34 +86,49 @@ class Profile extends Component {
               s={12}
               m={12}
               l={12}
-              placeholder="Block"
-              onChange={this.changeHandler}
+              label="Block"
+              onChange={this.changeHandler("block")}
+              placeholder={this.state.block}
+              value={this.state.block}
+              name="block"
             />
             <Input
               s={6}
               m={6}
               l={6}
               offset="m3 l3"
-              placeholder="Level"
-              onChange={this.changeHandler}
+              label="Level"
+              onChange={this.changeHandler("level")}
+              placeholder={this.state.level}
+              value={this.state.level}
+              name="level"
             />
             <Input
               s={6}
               m={6}
               l={6}
               offset="m3 l3"
-              placeholder="Unit"
-              onChange={this.changeHandler}
+              label="Unit"
+              onChange={this.changeHandler("unit")}
+              placeholder={this.state.unit}
+              value={this.state.unit}
+              name="unit"
             />
             <Input
               s={12}
               m={12}
               l={12}
-              placeholder="Phone"
-              onChange={this.changeHandler}
+              label="Phone"
+              onChange={this.changeHandler("phone")}
+              placeholder={this.state.phone}
+              value={this.state.phone}
+              name="phone"
             />
             <Col s={12} m={12} l={12}>
-              <a className="waves-effect waves-light btn saveBtn">
+              <a
+                className="waves-effect waves-light btn saveBtn"
+                onClick={this.clickHandler}
+              >
                 SAVE PROFILE
               </a>
             </Col>

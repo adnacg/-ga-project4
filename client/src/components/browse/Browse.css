@@ -4,7 +4,29 @@
 
 @media only screen and (max-width: 480px) {
   .browseBanner {
-    height: 33rem;
+    height: 40rem;
+    border-bottom: 1.5px solid #726a95;
+  }
+  .browseImg {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .browseImg {
+    width: 100%;
+  }
+  .browseText {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .browseImg {
+    width: 100%;
+  }
+  .browseText {
+    width: 100%;
   }
 }
 
@@ -33,21 +55,26 @@
   text-shadow: none;
 }
 
-.browseImg {
+.browseImgDiv {
   display: inline-block;
-  width: 300px;
-  height: 200px;
+  margin-top: -1rem;
+}
+
+.browseImg {
+  width: 520px;
+  height: 300px;
 }
 
 .browseText {
-  height: 200px;
+  height: 300px;
   float: right;
   text-align: center;
 }
 
 .browseCatTitle {
+  clear: both;
   font-size: 2rem;
-  font-weight: 1000;
+  font-weight: 1200;
   text-align: center;
 }
 

@@ -40,13 +40,7 @@ class Browse extends Component {
       items: {
         chocolate: [],
         candy: [],
-        biscuit: [],
-        cookie: [],
-        cracker: [],
-        mint: [],
-        gummy: [],
-        savoury: [],
-        beverage: []
+        biscuit: []
       }
     };
   }
@@ -85,7 +79,7 @@ class Browse extends Component {
     return (
       <div>
         <div className="browseBanner">
-          <div className="browseImg">
+          <div className="browseImgDiv">
             <img src="/feature.png" className="browseImg" />
           </div>
           <div className="browseText">

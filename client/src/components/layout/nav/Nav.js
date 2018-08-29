@@ -25,7 +25,7 @@ class Nav extends Component {
           <Navbar className="myNav">
             {auth.isAuthenticated() ? (
               <Container>
-                <Link to="/">
+                <Link to="/browse">
                   <NavItem className="brandName">SNACKY</NavItem>
                 </Link>
                 <Dropdown

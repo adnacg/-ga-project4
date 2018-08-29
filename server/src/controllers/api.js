@@ -178,8 +178,6 @@ let createApiControllers = db => {
       if (id) {
         const user = await User.findById(id);
         const feedback = await user.setProducts([]);
-        console.log(feedback);
-
         // const product = await Product.findById(product_id);
         // const feedback = await user.removeProduct(product);
         return response.json({ success: true });
@@ -190,14 +188,12 @@ let createApiControllers = db => {
     getActiveOrder: async (request, response) => {
       const { id: userId } = request.params;
       if (userId) {
-        console.log("Before DB call");
         const order = await Order.findOne({
           where: {
             userId,
             deliveryStatus: "Preparing"
           }
         });
-        console.log(order);
         const products = await order.getProducts();
         const orderProducts = products.map(item => ({
           id: item.id,
@@ -230,6 +226,25 @@ let createApiControllers = db => {
         response.json(history);
       }
       response.json({});
+    },
+
+    profileUpdate: async (request, response) => {
+      const { id } = request.params;
+      if (id) {
+        const user = await User.findById(id);
+        const feedback = await user.update({
+          block: request.body.block,
+          level: request.body.level,
+          unit: request.body.unit,
+          phone: request.body.phone
+        });
+        if (feedback) {
+          return response.json({ success: false });
+        } else {
+          return response.json({ success: true });
+        }
+      }
+      response.json({ success: false });
     }
   };
 };

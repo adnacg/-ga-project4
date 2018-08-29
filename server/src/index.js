@@ -39,8 +39,6 @@ app.get("/", (req, res) =>
 const PORT = process.env.PORT || 5000;
 sequelize.sync().then(() => {
   // sequelize.sync({ force: true }).then(() => {
-  console.log("Test test test");
-
   app.listen(PORT, () =>
     console.log(`~~~Express server listening on port ${PORT}~~~`)
   );

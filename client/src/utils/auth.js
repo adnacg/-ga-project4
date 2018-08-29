@@ -49,10 +49,20 @@ const auth = {
 
   authFetch(url, opts = null) {
     if (auth.getToken()) {
-      return fetch(url, {
-        ...opts,
-        headers: { Authorization: `Bearer ${auth.getToken()}` }
-      });
+      if (opts) {
+        return fetch(url, {
+          ...opts,
+          headers: {
+            ...opts.headers,
+            Authorization: `Bearer ${auth.getToken()}`
+          }
+        });
+      } else {
+        return fetch(url, {
+          ...opts,
+          headers: { Authorization: `Bearer ${auth.getToken()}` }
+        });
+      }
     } else {
       if (opts) {
         return fetch(url, opts);

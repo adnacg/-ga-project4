@@ -23,9 +23,7 @@ export default db => (req, res, next) => {
     const userId = decoded.userId;
 
     // check if a user exists
-    console.log(userId);
     const user = await User.findById(userId);
-    console.log(user);
 
     if (!user) {
       return res.status(401).end();

@@ -29,7 +29,6 @@ class Signin extends Component {
   handleSignIn = async () => {
     const { user } = this.state;
     const success = await auth.authenticate(user.email, user.password);
-    // console.log(success);
 
     // Need to handle backend feedback
     if (success) {

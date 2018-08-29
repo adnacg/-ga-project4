@@ -15,14 +15,11 @@ class Category extends Component {
 
   fetchBrands = async props => {
     try {
-      console.log("Before request");
       const response = await fetch(
         `http://localhost:5000/api/brand?category=${
           props.match.params.category
         }`
       );
-      console.log(response);
-
       const data = await response.json();
       this.setState({ items: data });
     } catch (error) {
