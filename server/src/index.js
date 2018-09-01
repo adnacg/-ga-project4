@@ -1,10 +1,18 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { Server } from "http";
+import SocketIO from "socket.io";
+
 import db from "./models";
+import connectSocket from "./ws";
 
 const app = express();
+const http = Server(app);
+const io = SocketIO(http);
 const sequelize = db.sequelize;
+
+connectSocket(io, db);
 
 // middlewares
 app.use(
@@ -35,11 +43,13 @@ app.get("/", (req, res) =>
   res.send("This is my Express server, nothing to show at root.")
 );
 
+setInterval(() => {}, 1000);
+
 // start server
 const PORT = process.env.PORT || 5000;
 sequelize.sync().then(() => {
   // sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () =>
+  http.listen(PORT, () =>
     console.log(`~~~Express server listening on port ${PORT}~~~`)
   );
 });

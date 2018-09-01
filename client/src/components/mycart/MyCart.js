@@ -116,7 +116,6 @@ class MyCart extends Component {
 
   checkoutHandler = async userId => {
     // Send order creation request to backend
-    let success = false;
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/order`,

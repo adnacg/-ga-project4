@@ -9,7 +9,7 @@ const BrandPreview = ({ category, name, img }) => (
   <div className="singleBrandDiv">
     <div className="z-depth-3 catBrandImgDiv">
       <Link to={`/browse/${category}/${name}`}>
-        <img src={img} className="catBrandImg" />
+        <img src={img} className="catBrandImg" alt="Category" />
       </Link>
     </div>
     <p className="catBrandText">{name.toUpperCase()}</p>
@@ -72,7 +72,12 @@ class Browse extends Component {
     const brands = Object.keys(this.state.items).map(category => (
       <CategoryPreview name={category}>
         {this.state.items[category].map(item => (
-          <BrandPreview category={category} name={item.name} img={item.img} />
+          <BrandPreview
+            category={category}
+            name={item.name}
+            img={item.img}
+            alt={"Brand preview"}
+          />
         ))}
       </CategoryPreview>
     ));

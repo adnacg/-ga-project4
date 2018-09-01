@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       through: { model: models.OrderProduct, unique: false },
       foreignKey: "orderId"
     });
+    Order.hasMany(models.Robot, {
+      foreignKey: "orderId"
+    });
   };
   return Order;
 };

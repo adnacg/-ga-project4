@@ -3,6 +3,7 @@ import { CardPanel } from "react-materialize";
 
 import "./AdminOrders.css";
 import auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 const fetch = auth.authFetch;
 
 class AdminOrders extends Component {
@@ -62,15 +63,12 @@ class AdminOrders extends Component {
               <a className="waves-effect waves-light btn orderActiveBtn">
                 {order.deliveryStatus}
               </a>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                Cancel
-              </a>
-              <a className="waves-effect waves-light btn orderActiveBtn">
+              <Link
+                to={`/admin/control/${order.id}`}
+                className="waves-effect waves-light btn orderActiveBtn"
+              >
                 Autosend
-              </a>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                Manual
-              </a>
+              </Link>
             </div>
           )}
         </CardPanel>
