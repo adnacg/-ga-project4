@@ -20,8 +20,9 @@ class Category extends Component {
           props.match.params.category
         }`
       );
-      const data = await response.json();
-      this.setState({ items: data });
+      const { success, brandsList } = await response.json();
+      if (!success) return;
+      this.setState({ items: brandsList });
     } catch (error) {
       console.log(error);
     }

@@ -16,9 +16,9 @@ class AdminOrders extends Component {
   componentDidMount = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/orders`);
-      const data = await response.json();
-      console.log(data);
-      this.setState({ orders: data });
+      const { success, history } = await response.json();
+      if (!success) return;
+      this.setState({ orders: history });
     } catch (error) {
       console.log(error);
     }

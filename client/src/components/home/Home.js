@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Row } from "react-materialize";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "./Home.css";
+import auth from "../../utils/auth";
 
 class Home extends Component {
   render() {
-    return (
+    return !auth.getUserId() ? (
       <div className="myHome">
         <h3>WELCOME TO SNACKY</h3>
         <h6>DELIVER THE SNACKS YOU LOVE, WITH LOVE</h6>
@@ -20,6 +21,8 @@ class Home extends Component {
           </Link>
         </Row>
       </div>
+    ) : (
+      <Redirect to="/browse" />
     );
   }
 }

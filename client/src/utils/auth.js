@@ -47,10 +47,11 @@ const auth = {
     auth.clearAppStorage();
   },
 
-  authFetch(url, opts = null) {
+  async authFetch(url, opts = null) {
     if (auth.getToken()) {
+      let response;
       if (opts) {
-        return fetch(url, {
+        response = await fetch(url, {
           ...opts,
           headers: {
             ...opts.headers,
@@ -58,11 +59,16 @@ const auth = {
           }
         });
       } else {
-        return fetch(url, {
+        response = await fetch(url, {
           ...opts,
           headers: { Authorization: `Bearer ${auth.getToken()}` }
         });
       }
+
+      if (response.status === 401) {
+        auth.clearAppStorage();
+      }
+      return response;
     } else {
       if (opts) {
         return fetch(url, opts);

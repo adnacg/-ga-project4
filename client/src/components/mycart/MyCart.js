@@ -12,67 +12,66 @@ class MyCart extends Component {
     super();
     this.state = {
       cart: [],
-      user: {}
+      user: {},
+      currentOrderContent: null,
+      currentOrderStatus: "",
+      loading: true
     };
   }
 
   componentDidMount = async () => {
-    // Get current user cart
     const userId = auth.getUserId();
+    // Get current user
+    try {
+      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const { success, user } = await response.json();
+      if (!success) return;
+      this.setState({ user });
+    } catch (error) {
+      console.log(error);
+    }
+
+    // Get current user cart
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/product`
       );
-      const data = await response.json();
-      this.setState({ cart: data });
+      const { success, cart } = await response.json();
+      if (!success) return;
+      this.setState({ cart });
     } catch (error) {
       console.log(error);
     }
 
-    // Get current user
-    try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
-      const data = await response.json();
-      this.setState({ user: data });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  addToCartHandler = async (userId, product) => {
+    // Check if current user has active order
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product?product_id=${
-          product.id
-        }`,
+        `http://localhost:5000/api/user/${userId}/order`
+      );
+      const { success, orderStatus, orderProducts } = await response.json();
+      console.log("order products:", orderProducts);
+
+      if (!success) return;
+      this.setState({
+        currentOrderStatus: orderStatus,
+        currentOrderContent: orderProducts
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    this.setState({ loading: false });
+  };
+
+  addToCartHandler = async (userId, productId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product?product_id=${productId}`,
         {
           method: "POST"
         }
       );
       const { success } = await response.json();
-      console.log(success);
-
-      if (success) {
-        this.setState(({ cart }) => ({
-          cart: [
-            ...cart,
-            { id: product.id, name: product.name, price: product.price }
-          ]
-        }));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  removeFromCartHandler = async (userId, product) => {
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product/${product.id}`,
-        {
-          method: "DELETE"
-        }
-      );
+      if (!success) console.log("Failed to add product to cart");
     } catch (error) {
       console.log(error);
     }
@@ -81,8 +80,35 @@ class MyCart extends Component {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/product`
       );
-      const data = await response.json();
-      this.setState({ cart: data });
+      const { success, cart } = await response.json();
+      if (!success) return;
+      this.setState({ cart });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  removeFromCartHandler = async (userId, productId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product/${productId}`,
+        {
+          method: "DELETE"
+        }
+      );
+      const { success } = await response.json();
+      if (!success) console.log("Failed to remove product to cart");
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/product`
+      );
+      const { success, cart } = await response.json();
+      if (!success) return;
+      this.setState({ cart });
     } catch (error) {
       console.log(error);
     }
@@ -98,14 +124,12 @@ class MyCart extends Component {
           method: "POST"
         }
       );
-      const feedback = await response.json();
-      success = feedback.success;
+      const { success } = await response.json();
+      if (!success) return;
     } catch (error) {
       console.log(error);
     }
 
-    // Send clear cart request to backend
-    if (!success) return;
     try {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/product`,
@@ -113,7 +137,8 @@ class MyCart extends Component {
           method: "DELETE"
         }
       );
-      success = await response.json().success;
+      const { success } = await response.json().success;
+      if (!success) return;
     } catch (error) {
       console.log(error);
     }
@@ -123,9 +148,25 @@ class MyCart extends Component {
   };
 
   render() {
-    if (this.state.cart.length === 0) {
-      return <EmptyCart />;
-    } else {
+    if (this.state.loading) {
+      return null;
+    }
+    if (this.state.currentOrderContent) {
+      return (
+        <div>
+          <Row>
+            <p className="mycartTitle">My Order</p>
+            <Col s={12} m={6} offset={"m3"}>
+              <Cart
+                cart={this.state.currentOrderContent}
+                user={this.state.user}
+                status={this.state.currentOrderStatus}
+              />
+            </Col>
+          </Row>
+        </div>
+      );
+    } else if (this.state.cart.length > 0) {
       return (
         <div>
           <Row>
@@ -143,6 +184,8 @@ class MyCart extends Component {
           </Row>
         </div>
       );
+    } else {
+      return <EmptyCart />;
     }
   }
 }

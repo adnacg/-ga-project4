@@ -6,21 +6,11 @@ class Cart extends Component {
   render() {
     const cart = this.props.cart;
 
-    // pre-process the cart data for display
-    const filteredCart = {};
-    cart.forEach(item => {
-      if (Object.keys(filteredCart).includes(item.name)) {
-        filteredCart[item.name].count++;
-        filteredCart[item.name].price =
-          item.price * filteredCart[item.name].count;
-      } else {
-        filteredCart[item.name] = { ...item, count: 1 };
-      }
-    });
-
     // cart prices
     const subtotalRaw = cart
-      .reduce((acc, current) => acc + current.price, 0)
+      .reduce((acc, current) => {
+        return acc + current.price * current.count;
+      }, 0)
       .toFixed(2);
     const subtotal = parseFloat(subtotalRaw);
     const deliveryFeeRaw = (3).toFixed(2);
@@ -30,31 +20,23 @@ class Cart extends Component {
     const totalRaw = subtotal + deliveryFee + gst;
     const total = parseFloat(totalRaw).toFixed(2);
 
-    // map filteredCart to markup
-    const myCart = Object.keys(filteredCart).map(name => (
-      <div key={name} className="cartItems">
+    // map cart to markup
+    const myCart = cart.map(item => (
+      <div key={item.id} className="cartItems">
         {this.props.status === "BUILDING" ? (
           <Fragment>
             <a
               onClick={() =>
-                this.props.removeFromCartHandler(this.props.user.id, {
-                  id: filteredCart[name].id,
-                  name: name,
-                  price: filteredCart[name].price
-                })
+                this.props.removeFromCartHandler(this.props.user.id, item.id)
               }
               className="btn-floating btn waves-effect waves-light addFromOrderBtn"
             >
               <i className="material-icons addFromOrderIcon">remove</i>
             </a>
-            {filteredCart[name].count}
+            {item.count}
             <a
               onClick={() =>
-                this.props.addToCartHandler(this.props.user.id, {
-                  id: filteredCart[name].id,
-                  name: name,
-                  price: filteredCart[name].price
-                })
+                this.props.addToCartHandler(this.props.user.id, item.id)
               }
               className="btn-floating btn waves-effect waves-light addFromOrderBtn"
             >
@@ -62,16 +44,19 @@ class Cart extends Component {
             </a>{" "}
           </Fragment>
         ) : (
-          <Fragment>{filteredCart[name].count} x </Fragment>
+          <Fragment>{item.count} x </Fragment>
         )}
         <span>
-          {name}
+          {item.name}
           <span className="cartItemPrices">
-            $ {filteredCart[name].price.toFixed(2)}
+            $ {(item.price * item.count).toFixed(2)}
           </span>
         </span>
       </div>
     ));
+
+    let deliveryTime = new Date();
+    deliveryTime.setMinutes(deliveryTime.getMinutes() + 30);
 
     return (
       <CardPanel className="sideCart z-depth-3">
@@ -81,7 +66,7 @@ class Cart extends Component {
           {this.props.user.unit}
         </p>
         <p>ESTIMATED ARRIVAL:</p>
-        <p className="lightText">{Date()}</p>
+        <p className="lightText">{deliveryTime.toString()}</p>
 
         <p>Your Cart</p>
         <div className="cartSeparator" />

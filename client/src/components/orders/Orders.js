@@ -19,8 +19,9 @@ class Orders extends Component {
       const response = await fetch(
         `http://localhost:5000/api/user/${userId}/orders`
       );
-      const data = await response.json();
-      this.setState({ orders: data });
+      const { success, history } = await response.json();
+      if (!success) return;
+      this.setState({ orders: history });
     } catch (error) {
       console.log(error);
     }

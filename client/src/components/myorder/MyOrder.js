@@ -10,34 +10,36 @@ class MyOrder extends Component {
   constructor() {
     super();
     this.state = {
-      currentOrderContent: [],
+      currentOrderContent: null,
       currentOrderStatus: "",
       user: {}
     };
   }
 
   componentDidMount = async () => {
-    // Get current user cart
+    // Get current user
     const userId = auth.getUserId();
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`
-      );
-      const { orderStatus, orderProducts } = await response.json();
-
-      this.setState({
-        currentOrderStatus: orderStatus,
-        currentOrderContent: orderProducts
-      });
+      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const { success, user } = await response.json();
+      if (!success) return;
+      this.setState({ user });
     } catch (error) {
       console.log(error);
     }
 
-    // Get current user
+    // Get current user order
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
-      const data = await response.json();
-      this.setState({ user: data });
+      const response = await fetch(
+        `http://localhost:5000/api/user/${userId}/order`
+      );
+      const { success, orderStatus, orderProducts } = await response.json();
+
+      if (!success) return;
+      this.setState({
+        currentOrderStatus: orderStatus,
+        currentOrderContent: orderProducts
+      });
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +51,7 @@ class MyOrder extends Component {
         <Row>
           <p className="myorderTitle">My Order</p>
           <Col s={12} m={6} offset={"m3"}>
-            {this.state.currentOrderContent.length > 0 ? (
+            {this.state.currentOrderContent ? (
               <Cart
                 cart={this.state.currentOrderContent}
                 user={this.state.user}

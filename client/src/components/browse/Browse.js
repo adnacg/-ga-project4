@@ -52,9 +52,10 @@ class Browse extends Component {
           `http://localhost:5000/api/brand?category=${category}`
         );
 
-        const data = await response.json();
+        const { success, brandsList } = await response.json();
+        if (!success) throw new Error(`Failed to fetch brands for ${category}`);
         this.setState(({ items }) => {
-          items[category] = data;
+          items[category] = brandsList;
           return { items };
         });
       } catch (error) {
