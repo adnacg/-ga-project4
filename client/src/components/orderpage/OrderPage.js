@@ -152,7 +152,7 @@ class OrderPage extends Component {
           method: "DELETE"
         }
       );
-      const { success } = await response.json().success;
+      const { success } = await response.json();
       if (!success) return;
     } catch (error) {
       console.log(error);

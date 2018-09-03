@@ -3,22 +3,32 @@ import { CardPanel } from "react-materialize";
 import "./Cart.css";
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deliveryTime: null
+    };
+  }
+
+  componentDidMount = async () => {
+    const deliveryTime = new Date();
+    deliveryTime.setMinutes(deliveryTime.getMinutes() + 30);
+    this.setState({ deliveryTime });
+  };
+
   render() {
     const cart = this.props.cart;
 
     // cart prices
-    const subtotalRaw = cart
-      .reduce((acc, current) => {
+
+    const subtotal = parseFloat(
+      cart.reduce((acc, current) => {
         return acc + current.price * current.count;
       }, 0)
-      .toFixed(2);
-    const subtotal = parseFloat(subtotalRaw);
-    const deliveryFeeRaw = (3).toFixed(2);
-    const deliveryFee = parseFloat(deliveryFeeRaw);
-    const gstRaw = (subtotal * 0.07).toFixed(2);
-    const gst = parseFloat(gstRaw);
-    const totalRaw = subtotal + deliveryFee + gst;
-    const total = parseFloat(totalRaw).toFixed(2);
+    );
+    const deliveryFee = parseFloat(3.0);
+    const gst = parseFloat(subtotal * 0.07);
+    const total = parseFloat(subtotal + deliveryFee + gst);
 
     // map cart to markup
     const myCart = cart.map(item => (
@@ -55,9 +65,6 @@ class Cart extends Component {
       </div>
     ));
 
-    let deliveryTime = new Date();
-    deliveryTime.setMinutes(deliveryTime.getMinutes() + 30);
-
     return (
       <CardPanel className="sideCart z-depth-3">
         <p>DELIVERING TO</p>
@@ -66,7 +73,9 @@ class Cart extends Component {
           {this.props.user.unit}
         </p>
         <p>ESTIMATED ARRIVAL:</p>
-        <p className="lightText">{deliveryTime.toString()}</p>
+        {this.state.deliveryTime && (
+          <p className="lightText">{this.state.deliveryTime.toString()}</p>
+        )}
 
         <p>Your Cart</p>
         <div className="cartSeparator" />
@@ -75,33 +84,35 @@ class Cart extends Component {
         <div className="cartTotal">
           <p>
             Subtotal
-            <span className="cartPrices">$ {subtotal}</span>
+            <span className="cartPrices">$ {subtotal.toFixed(2)}</span>
           </p>
           <p>
             Delivery fee
-            <span className="cartPrices">$ {deliveryFee}</span>
+            <span className="cartPrices">$ {deliveryFee.toFixed(2)}</span>
           </p>
           <p>
             GST
-            <span className="cartPrices">$ {gst}</span>
+            <span className="cartPrices">$ {gst.toFixed(2)}</span>
           </p>
           <p className="strongText">
             TOTAL
             <span className="lightText">
               <small> incl. GST</small>
             </span>
-            <span className="cartPrices">$ {total}</span>
+            <span className="cartPrices">$ {total.toFixed(2)}</span>
           </p>
         </div>
         {this.props.status === "BUILDING" ? (
-          <Fragment>
-            <a
-              onClick={() => this.props.checkoutHandler(this.props.user.id)}
-              className="waves-effect waves-light btn checkoutBtn"
-            >
-              CHECKOUT
-            </a>
-          </Fragment>
+          subtotal > 1 && (
+            <Fragment>
+              <a
+                onClick={() => this.props.checkoutHandler(this.props.user.id)}
+                className="waves-effect waves-light btn checkoutBtn"
+              >
+                CHECKOUT
+              </a>
+            </Fragment>
+          )
         ) : (
           <Fragment>
             <a className="btn statusBtn">

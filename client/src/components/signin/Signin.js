@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Input } from "react-materialize";
+import { Col, Row, Input, Button } from "react-materialize";
 import { Link } from "react-router-dom";
 import auth from "../../utils/auth";
 import _ from "lodash";
@@ -26,7 +26,8 @@ class Signin extends Component {
     }));
   };
 
-  handleSignIn = async () => {
+  handleSignIn = async event => {
+    event.preventDefault();
     const { user } = this.state;
     const success = await auth.authenticate(user.email, user.password);
 
@@ -41,33 +42,35 @@ class Signin extends Component {
       <div className="mySignin">
         <Row>
           <Col s={12} m={8} l={6} offset="m2 l3">
-            <p className="myTitle">SIGN IN</p>
-            <Input
-              s={12}
-              label="Email"
-              name="email"
-              onChange={this.changeFormData}
-            />
-            <Input
-              s={12}
-              type="password"
-              label="Password"
-              name="password"
-              onChange={this.changeFormData}
-            />
-            <a
-              className="waves-effect waves-light btn signinBtn"
-              onClick={this.handleSignIn}
-            >
-              SIGN IN
-            </a>
-            <p>
-              Don’t have an account? Register{" "}
-              <Link to="/register" className="regPrompt">
-                here
-              </Link>
-              .
-            </p>
+            <form onSubmit={this.handleSignIn}>
+              <p className="myTitle">SIGN IN</p>
+              <Input
+                s={12}
+                label="Email"
+                name="email"
+                onChange={this.changeFormData}
+              />
+              <Input
+                s={12}
+                type="password"
+                label="Password"
+                name="password"
+                onChange={this.changeFormData}
+              />
+              <Button
+                type="submit"
+                className="waves-effect waves-light btn signinBtn"
+              >
+                SIGN IN
+              </Button>
+              <p>
+                Don’t have an account? Register{" "}
+                <Link to="/register" className="regPrompt">
+                  here
+                </Link>
+                .
+              </p>
+            </form>
           </Col>
         </Row>
       </div>

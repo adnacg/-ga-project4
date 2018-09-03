@@ -43,7 +43,9 @@ class Orders extends Component {
           <p>
             {" "}
             Total : ${" "}
-            {order.products.reduce((acc, current) => acc + current.price, 0)}
+            {order.products
+              .reduce((acc, current) => acc + current.price, 0)
+              .toFixed(2)}
           </p>
           <p className="lightText">
             {order.products.map(product => (

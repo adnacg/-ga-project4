@@ -1,9 +1,12 @@
+import paths from "../paths";
+
 let createApiControllers = db => {
   const {
     Category,
     Brand,
     Product,
     User,
+    Robot,
     Order,
     UserProduct,
     OrderProduct,
@@ -308,7 +311,7 @@ let createApiControllers = db => {
           });
 
           if (!order) {
-            return response.json({ success: false });
+            return response.json({ success: true });
           }
 
           const products = await order.getProducts();
@@ -327,6 +330,7 @@ let createApiControllers = db => {
           );
           response.json({
             success: true,
+            orderId: order.id,
             orderStatus: order.deliveryStatus,
             orderProducts
           });
@@ -386,6 +390,90 @@ let createApiControllers = db => {
         }
       }
       response.json({ success: false });
+    },
+
+    getOrderUser: async (request, response) => {
+      const { id } = request.params;
+      if (id) {
+        try {
+          const order = await Order.findById(id);
+          const userId = await order.userId;
+          const user = await User.findById(userId);
+          response.json({
+            success: true,
+            user,
+            orderStatus: order.deliveryStatus
+          });
+        } catch (error) {
+          response.json({ success: false });
+        }
+      }
+      response.json({ success: false });
+    },
+
+    dispatchRobot: async (request, response) => {
+      const { id } = request.params;
+
+      const order = await Order.findById(id);
+      console.log("Finding order");
+
+      if (!order) return response.json({ success: false });
+      console.log("Found order");
+
+      // find available robot
+      const robot = await Robot.findOne({
+        where: {
+          status: "Available"
+        }
+      });
+      console.log("Robot:", robot);
+
+      // assign orderid to robot (if found one)
+      if (!robot) return response.json({ success: false });
+
+      console.log("Found one");
+
+      robot.orderId = id;
+      robot.status = "On the way";
+      await robot.save();
+
+      order.deliveryStatus = "On the way";
+      await order.save();
+
+      // Start simulation
+      console.log(`Starting simulation for robot: ${robot.id}`);
+      const timer = setInterval(async () => {
+        // Fetch current pose for robot with orderId
+        try {
+          console.log(`Simulation step for robot: ${robot.id}`);
+          // const robot = await Robot.findOne({
+          //   where: {
+          //     orderId
+          //   }
+          // });
+          // if (robot.length === 0) return;
+          const currentPath = paths[order.userId];
+          if (robot.poseIndex === currentPath.length - 1) {
+            order.deliveryStatus = "Closed";
+            await order.save();
+            robot.poseIndex = 0;
+            robot.status = "Available";
+            await robot.save();
+            console.log("Order delivered. Shutting simulation down");
+            clearInterval(timer);
+            return;
+          }
+          robot.poseIndex++;
+          await robot.save();
+        } catch (error) {
+          console.log(`Error during simulation: ${error}`);
+          console.log("Shutting simulation down");
+          clearInterval(timer);
+        }
+      }, 1000);
+      console.log("returning");
+
+      return response.json({ success: true });
     }
   };
 };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CardPanel } from "react-materialize";
+import { CardPanel, Button, Col, Row } from "react-materialize";
 
 import "./AdminOrders.css";
 import auth from "../../utils/auth";
@@ -23,6 +23,21 @@ class AdminOrders extends Component {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  handleAutoSend = async orderId => {
+    // POST request
+    const response = await fetch(
+      `http://localhost:5000/api/order/${orderId}/dispatch`,
+      {
+        method: "POST"
+      }
+    );
+    const { success } = await response.json();
+    if (!success) return;
+
+    // Redirect to control panel
+    this.props.history.push(`/admin/control/${orderId}`);
   };
 
   render() {
@@ -60,15 +75,23 @@ class AdminOrders extends Component {
             <a className="btn orderClosedBtnAdmin">Closed</a>
           ) : (
             <div>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                {order.deliveryStatus}
-              </a>
-              <Link
-                to={`/admin/control/${order.id}`}
-                className="waves-effect waves-light btn orderActiveBtn"
-              >
-                Autosend
-              </Link>
+              <a className="btn orderClosedBtnAdmin">{order.deliveryStatus}</a>
+
+              {order.deliveryStatus === "Preparing" ? (
+                <Button
+                  onClick={() => this.handleAutoSend(order.id)}
+                  className="waves-effect waves-light btn orderActiveBtn"
+                >
+                  Autosend
+                </Button>
+              ) : (
+                <Link
+                  to={`/admin/control/${order.id}`}
+                  className="waves-effect waves-light btn orderActiveBtn"
+                >
+                  Track
+                </Link>
+              )}
             </div>
           )}
         </CardPanel>
@@ -78,7 +101,7 @@ class AdminOrders extends Component {
     return (
       <div>
         <p className="adminOrderTitle">MASTER ORDERS</p>
-        {orderPreviews}
+        <div className="adminOrderItemsDiv">{orderPreviews}</div>
       </div>
     );
   }

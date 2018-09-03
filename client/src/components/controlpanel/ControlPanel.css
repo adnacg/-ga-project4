@@ -39,3 +39,18 @@
   display: flex;
   justify-content: center;
 }
+
+.snackyStatus,
+.snackyStatus:active,
+.snackyStatus:focus {
+  background-color: #709fb0;
+  color: #f4e8c1;
+  text-shadow: 1px 1px 6px #000;
+  font-size: 0.8rem;
+  margin: 0.4rem 1.5rem 1rem 1.5rem;
+}
+
+.snackyStatus:hover {
+  background-color: #709fb0;
+  color: #f4e8c1;
+}

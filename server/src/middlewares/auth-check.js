@@ -18,7 +18,6 @@ export default db => (req, res, next) => {
   // decode the token using a secret key-phrase
   return jwt.verify(token, config.jwtSecret, async (err, decoded) => {
     // the 401 code is for unauthorized status
-    console.log("Before");
     // return res.status(401).json({ success: false });
     if (err) {
       console.log(err);

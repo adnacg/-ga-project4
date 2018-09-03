@@ -1,53 +1,50 @@
 import React, { Component } from "react";
 
 import "./Map.css";
-import img from "../../assets/map.png";
-import { subscribeToPose, unsubscribeToPose } from "../../utils/ws";
+import img from "../../assets/map.jpg";
+import robotImg from "../../assets/snacky.png";
 
 class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      x: 0,
-      y: 0,
-      status: "On the way"
-    };
-  }
-
   componentDidMount = () => {
-    this.updateCanvas();
-    console.log("Subscribing");
-
-    subscribeToPose(this.props.orderId, (err, state) => {
-      console.log(state);
-      this.setState(state);
-      this.updateCanvas();
-    });
+    this.updateCanvas(this.props);
   };
 
-  componentWillUnmount = () => {
-    console.log("Unsubscribing");
-    unsubscribeToPose();
+  componentWillReceiveProps = props => {
+    this.updateCanvas(props);
   };
 
-  updateCanvas() {
+  updateCanvas(props) {
     const ctx = this.refs.canvas.getContext("2d");
-    const { x, y } = this.state;
+    const { x, y } = props;
 
-    // Display map
     const map = new Image();
     map.src = img;
     map.onload = () => {
+      // Display map
       ctx.drawImage(map, 0, 0, this.refs.canvas.width, this.refs.canvas.height);
-      ctx.fillStyle = "#FF0000";
-      ctx.fillRect(x, y, 40, 30, "red");
+      // Display Robot
+      const robot = new Image();
+      robot.src = robotImg;
+      robot.onload = () => {
+        if (this.props.status === "Arrived") {
+          ctx.fillStyle = "#726A95";
+        } else if (this.props.status === "Preparing") {
+          ctx.fillStyle = "#A0C1B8";
+        } else {
+          ctx.fillStyle = "#f4e8c1";
+        }
+        ctx.fillRect(x, y + 5, 50, 60, "red");
+        ctx.drawImage(robot, x, y, 50, 65);
+      };
     };
-
-    // Display robot
   }
 
   render() {
-    return <canvas ref="canvas" width={300} height={300} />; //<div>{this.state.pose}</div>;
+    return (
+      <div>
+        <canvas ref="canvas" width={500} height={327} />
+      </div>
+    );
   }
 }
 

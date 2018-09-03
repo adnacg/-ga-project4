@@ -13,8 +13,8 @@ class MyCart extends Component {
     this.state = {
       cart: [],
       user: {},
-      currentOrderContent: null,
-      currentOrderStatus: "",
+      // currentOrderContent: null,
+      // currentOrderStatus: "",
       loading: true
     };
   }
@@ -44,21 +44,21 @@ class MyCart extends Component {
     }
 
     // Check if current user has active order
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`
-      );
-      const { success, orderStatus, orderProducts } = await response.json();
-      console.log("order products:", orderProducts);
+    //   try {
+    //     const response = await fetch(
+    //       `http://localhost:5000/api/user/${userId}/order`
+    //     );
+    //     const { success, orderStatus, orderProducts } = await response.json();
+    //     console.log("order products:", orderProducts);
 
-      if (!success) return;
-      this.setState({
-        currentOrderStatus: orderStatus,
-        currentOrderContent: orderProducts
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    //     if (!success) return;
+    //     this.setState({
+    //       currentOrderStatus: orderStatus,
+    //       currentOrderContent: orderProducts
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
     this.setState({ loading: false });
   };
 
@@ -150,22 +150,7 @@ class MyCart extends Component {
     if (this.state.loading) {
       return null;
     }
-    if (this.state.currentOrderContent) {
-      return (
-        <div>
-          <Row>
-            <p className="mycartTitle">My Order</p>
-            <Col s={12} m={6} offset={"m3"}>
-              <Cart
-                cart={this.state.currentOrderContent}
-                user={this.state.user}
-                status={this.state.currentOrderStatus}
-              />
-            </Col>
-          </Row>
-        </div>
-      );
-    } else if (this.state.cart.length > 0) {
+    if (this.state.cart.length > 0) {
       return (
         <div>
           <Row>
