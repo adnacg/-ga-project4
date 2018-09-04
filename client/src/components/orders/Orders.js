@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CardPanel } from "react-materialize";
+import { HOST, port } from "../../constants";
 
 import "./Orders.css";
 import auth from "../../utils/auth";
@@ -17,10 +18,11 @@ class Orders extends Component {
     const userId = auth.getUserId();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/orders`
+        `http://${HOST}:${port}/api/user/${userId}/orders`
       );
-      const data = await response.json();
-      this.setState({ orders: data });
+      const { success, history } = await response.json();
+      if (!success) return;
+      this.setState({ orders: history });
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +44,9 @@ class Orders extends Component {
           <p>
             {" "}
             Total : ${" "}
-            {order.products.reduce((acc, current) => acc + current.price, 0)}
+            {order.products
+              .reduce((acc, current) => acc + current.price, 0)
+              .toFixed(2)}
           </p>
           <p className="lightText">
             {order.products.map(product => (

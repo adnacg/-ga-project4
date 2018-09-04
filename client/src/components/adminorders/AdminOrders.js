@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { CardPanel } from "react-materialize";
+import { CardPanel, Button, Col, Row } from "react-materialize";
+
+import { HOST, port } from "../../constants";
 
 import "./AdminOrders.css";
 import auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 const fetch = auth.authFetch;
 
 class AdminOrders extends Component {
@@ -15,13 +18,28 @@ class AdminOrders extends Component {
 
   componentDidMount = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders`);
-      const data = await response.json();
-      console.log(data);
-      this.setState({ orders: data });
+      const response = await fetch(`http://${HOST}:${port}/api/orders`);
+      const { success, history } = await response.json();
+      if (!success) return;
+      this.setState({ orders: history });
     } catch (error) {
       console.log(error);
     }
+  };
+
+  handleAutoSend = async orderId => {
+    // POST request
+    const response = await fetch(
+      `http://${HOST}:${port}/api/order/${orderId}/dispatch`,
+      {
+        method: "POST"
+      }
+    );
+    const { success } = await response.json();
+    if (!success) return;
+
+    // Redirect to control panel
+    this.props.history.push(`/admin/control/${orderId}`);
   };
 
   render() {
@@ -59,18 +77,23 @@ class AdminOrders extends Component {
             <a className="btn orderClosedBtnAdmin">Closed</a>
           ) : (
             <div>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                {order.deliveryStatus}
-              </a>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                Cancel
-              </a>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                Autosend
-              </a>
-              <a className="waves-effect waves-light btn orderActiveBtn">
-                Manual
-              </a>
+              <a className="btn orderClosedBtnAdmin">{order.deliveryStatus}</a>
+
+              {order.deliveryStatus === "Preparing" ? (
+                <Button
+                  onClick={() => this.handleAutoSend(order.id)}
+                  className="waves-effect waves-light btn orderActiveBtn"
+                >
+                  Autosend
+                </Button>
+              ) : (
+                <Link
+                  to={`/admin/control/${order.id}`}
+                  className="waves-effect waves-light btn orderActiveBtn"
+                >
+                  Track
+                </Link>
+              )}
             </div>
           )}
         </CardPanel>
@@ -79,8 +102,8 @@ class AdminOrders extends Component {
 
     return (
       <div>
-        <p className="adminOrderTitle">MASTER ORDERS</p>
-        {orderPreviews}
+        <p className="adminOrderTitle">ADMIN DASHBOARD</p>
+        <div className="adminOrderItemsDiv">{orderPreviews}</div>
       </div>
     );
   }

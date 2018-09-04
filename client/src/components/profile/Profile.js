@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Input } from "react-materialize";
 
 import "./Profile.css";
+import { HOST, port } from "../../constants";
 import auth from "../../utils/auth";
 const fetch = auth.authFetch;
 
@@ -9,11 +10,7 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      user: {},
-      block: "",
-      level: "",
-      unit: "",
-      phone: ""
+      user: {}
     };
   }
 
@@ -21,15 +18,10 @@ class Profile extends Component {
     const userId = auth.getUserId();
     // Get current user
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
-      const data = await response.json();
-      this.setState({
-        user: data,
-        block: data.block,
-        level: data.level,
-        unit: data.unit,
-        phone: data.phone
-      });
+      const response = await fetch(`http://${HOST}:${port}/api/user/${userId}`);
+      const { success, user } = await response.json();
+      if (!success) return;
+      this.setState({ user });
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +34,6 @@ class Profile extends Component {
   };
 
   clickHandler = async () => {
-    const userId = auth.getUserId();
     let validForm = true;
 
     Object.values(this.state).forEach(value => {
@@ -54,7 +45,7 @@ class Profile extends Component {
     if (validForm) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/user/${userId}/update`,
+          `http://${HOST}:${port}/api/user/${this.state.user.id}/update`,
           {
             method: "POST",
             headers: {
@@ -77,6 +68,7 @@ class Profile extends Component {
   };
 
   render() {
+    const { user } = this.state;
     return (
       <div className="myProfile">
         <Row>
@@ -88,8 +80,8 @@ class Profile extends Component {
               l={12}
               label="Block"
               onChange={this.changeHandler("block")}
-              placeholder={this.state.block}
-              value={this.state.block}
+              placeholder={user.block}
+              value={user.block}
               name="block"
             />
             <Input
@@ -99,8 +91,8 @@ class Profile extends Component {
               offset="m3 l3"
               label="Level"
               onChange={this.changeHandler("level")}
-              placeholder={this.state.level}
-              value={this.state.level}
+              placeholder={user.level}
+              value={user.level}
               name="level"
             />
             <Input
@@ -110,8 +102,8 @@ class Profile extends Component {
               offset="m3 l3"
               label="Unit"
               onChange={this.changeHandler("unit")}
-              placeholder={this.state.unit}
-              value={this.state.unit}
+              placeholder={user.unit}
+              value={user.unit}
               name="unit"
             />
             <Input
@@ -120,8 +112,8 @@ class Profile extends Component {
               l={12}
               label="Phone"
               onChange={this.changeHandler("phone")}
-              placeholder={this.state.phone}
-              value={this.state.phone}
+              placeholder={user.phone}
+              value={user.phone}
               name="phone"
             />
             <Col s={12} m={12} l={12}>

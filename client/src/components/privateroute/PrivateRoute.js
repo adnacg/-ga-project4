@@ -19,7 +19,7 @@ const PrivateRoute = ({
   <Route
     {...rest}
     render={props =>
-      auth.isAuthenticated && auth.isAllowed(allowedRoles) ? (
+      auth.isAuthenticated() && auth.isAllowed(allowedRoles) ? (
         <Component {...props} />
       ) : (
         <Redirect

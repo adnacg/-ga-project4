@@ -1,6 +1,8 @@
 import { isEmpty } from "lodash";
 import jwt from "jsonwebtoken";
 
+import { HOST, port } from "../constants";
+
 const TOKEN_KEY = "jwtToken";
 const USER_ID = "userId";
 const ROLE_KEY = "userRole";
@@ -11,7 +13,7 @@ const stringify = JSON.stringify;
 const auth = {
   async authenticate(email, password) {
     try {
-      const response = await fetch(`http://localhost:5000/auth/login`, {
+      const response = await fetch(`http://${HOST}:${port}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8"
@@ -29,6 +31,7 @@ const auth = {
 
       auth.setUserId(userId, true);
       auth.setUserRole(userRole, true);
+
       return true;
     } catch (error) {
       console.log(error);
@@ -47,10 +50,11 @@ const auth = {
     auth.clearAppStorage();
   },
 
-  authFetch(url, opts = null) {
+  async authFetch(url, opts = null) {
     if (auth.getToken()) {
+      let response;
       if (opts) {
-        return fetch(url, {
+        response = await fetch(url, {
           ...opts,
           headers: {
             ...opts.headers,
@@ -58,11 +62,16 @@ const auth = {
           }
         });
       } else {
-        return fetch(url, {
+        response = await fetch(url, {
           ...opts,
           headers: { Authorization: `Bearer ${auth.getToken()}` }
         });
       }
+
+      if (response.status === 401) {
+        auth.clearAppStorage();
+      }
+      return response;
     } else {
       if (opts) {
         return fetch(url, opts);

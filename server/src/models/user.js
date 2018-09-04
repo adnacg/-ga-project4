@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       unit: DataTypes.STRING,
       phone: DataTypes.STRING,
       role: DataTypes.STRING
+      // credit: { type: DataTypes.INTEGER, defaultValue: 100 }
     },
     {
       paranoid: true,

@@ -44,7 +44,7 @@ class App extends Component {
                 allowedRoles={["admin"]}
               />
               <PrivateRoute
-                path="/admin/control"
+                path="/admin/control/:orderId"
                 component={ControlPanel}
                 allowedRoles={["admin"]}
               />

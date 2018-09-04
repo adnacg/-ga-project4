@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 
 import "./Browse.css";
 import auth from "../../utils/auth";
+import { HOST, port } from "../../constants";
 const fetch = auth.authFetch;
 
 const BrandPreview = ({ category, name, img }) => (
   <div className="singleBrandDiv">
     <div className="z-depth-3 catBrandImgDiv">
       <Link to={`/browse/${category}/${name}`}>
-        <img src={img} className="catBrandImg" />
+        <img src={img} className="catBrandImg" alt="Category" />
       </Link>
     </div>
     <p className="catBrandText">{name.toUpperCase()}</p>
@@ -49,12 +50,13 @@ class Browse extends Component {
     Object.keys(this.state.items).forEach(async category => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/brand?category=${category}`
+          `http://${HOST}:${port}/api/brand?category=${category}`
         );
 
-        const data = await response.json();
+        const { success, brandsList } = await response.json();
+        if (!success) throw new Error(`Failed to fetch brands for ${category}`);
         this.setState(({ items }) => {
-          items[category] = data;
+          items[category] = brandsList;
           return { items };
         });
       } catch (error) {
@@ -71,7 +73,12 @@ class Browse extends Component {
     const brands = Object.keys(this.state.items).map(category => (
       <CategoryPreview name={category}>
         {this.state.items[category].map(item => (
-          <BrandPreview category={category} name={item.name} img={item.img} />
+          <BrandPreview
+            category={category}
+            name={item.name}
+            img={item.img}
+            alt={"Brand preview"}
+          />
         ))}
       </CategoryPreview>
     ));
