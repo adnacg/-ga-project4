@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Browse.css";
 import auth from "../../utils/auth";
+import { HOST, port } from "../../constants";
 const fetch = auth.authFetch;
 
 const BrandPreview = ({ category, name, img }) => (
@@ -49,7 +50,7 @@ class Browse extends Component {
     Object.keys(this.state.items).forEach(async category => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/brand?category=${category}`
+          `http://${HOST}:${port}/api/brand?category=${category}`
         );
 
         const { success, brandsList } = await response.json();

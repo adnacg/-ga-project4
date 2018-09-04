@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-materialize";
 import { Cart } from "../cart/Cart";
 import { EmptyCart } from "../emptycart/EmptyCart";
+import { HOST, port } from "../../constants";
 
 import "./MyCart.css";
 import auth from "../../utils/auth";
@@ -23,7 +24,7 @@ class MyCart extends Component {
     const userId = auth.getUserId();
     // Get current user
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const response = await fetch(`http://${HOST}:${port}/api/user/${userId}`);
       const { success, user } = await response.json();
       if (!success) return;
       this.setState({ user });
@@ -34,7 +35,7 @@ class MyCart extends Component {
     // Get current user cart
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`
+        `http://${HOST}:${port}/api/user/${userId}/product`
       );
       const { success, cart } = await response.json();
       if (!success) return;
@@ -46,7 +47,7 @@ class MyCart extends Component {
     // Check if current user has active order
     //   try {
     //     const response = await fetch(
-    //       `http://localhost:5000/api/user/${userId}/order`
+    //       `http://${HOST}:${port}/api/user/${userId}/order`
     //     );
     //     const { success, orderStatus, orderProducts } = await response.json();
     //     console.log("order products:", orderProducts);
@@ -65,7 +66,7 @@ class MyCart extends Component {
   addToCartHandler = async (userId, productId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product?product_id=${productId}`,
+        `http://${HOST}:${port}/api/user/${userId}/product?product_id=${productId}`,
         {
           method: "POST"
         }
@@ -78,7 +79,7 @@ class MyCart extends Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`
+        `http://${HOST}:${port}/api/user/${userId}/product`
       );
       const { success, cart } = await response.json();
       if (!success) return;
@@ -91,7 +92,7 @@ class MyCart extends Component {
   removeFromCartHandler = async (userId, productId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product/${productId}`,
+        `http://${HOST}:${port}/api/user/${userId}/product/${productId}`,
         {
           method: "DELETE"
         }
@@ -104,7 +105,7 @@ class MyCart extends Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`
+        `http://${HOST}:${port}/api/user/${userId}/product`
       );
       const { success, cart } = await response.json();
       if (!success) return;
@@ -118,7 +119,7 @@ class MyCart extends Component {
     // Send order creation request to backend
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`,
+        `http://${HOST}:${port}/api/user/${userId}/order`,
         {
           method: "POST"
         }
@@ -131,7 +132,7 @@ class MyCart extends Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`,
+        `http://${HOST}:${port}/api/user/${userId}/product`,
         {
           method: "DELETE"
         }

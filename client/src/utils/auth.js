@@ -1,6 +1,8 @@
 import { isEmpty } from "lodash";
 import jwt from "jsonwebtoken";
 
+import { HOST, port } from "../constants";
+
 const TOKEN_KEY = "jwtToken";
 const USER_ID = "userId";
 const ROLE_KEY = "userRole";
@@ -11,7 +13,7 @@ const stringify = JSON.stringify;
 const auth = {
   async authenticate(email, password) {
     try {
-      const response = await fetch(`http://localhost:5000/auth/login`, {
+      const response = await fetch(`http://${HOST}:${port}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8"

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-materialize";
 import { Map } from "../map/Map";
 import { Cart } from "../cart/Cart";
+import { HOST, port } from "../../constants";
 
 import { subscribeToPose, unsubscribeToPose } from "../../utils/ws";
 import "./ControlPanel.css";
@@ -35,7 +36,7 @@ class ControlPanel extends Component {
     // Get current order's user
     try {
       const response = await fetch(
-        `http://localhost:5000/api/order/${orderId}`
+        `http://${HOST}:${port}/api/order/${orderId}`
       );
       const { success, user, orderStatus } = await response.json();
       if (orderStatus === "Closed") {
@@ -51,7 +52,7 @@ class ControlPanel extends Component {
     const userId = this.state.user.id;
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`
+        `http://${HOST}:${port}/api/user/${userId}/order`
       );
       const { success, orderStatus, orderProducts } = await response.json();
 
@@ -76,20 +77,23 @@ class ControlPanel extends Component {
     if (loading) return null;
     return (
       <Row>
-        <Col s={12} m={8} l={8}>
+        <Col s={12} m={12} l={8}>
           <p className="cpTitle">
             SNACKY STATUS:{" "}
             <span className="btn snackyStatus">{status.toUpperCase()}</span>
           </p>
-          <Map x={x} y={y} status={status} />
+          <div className="cpMap">
+            <Map x={x} y={y} status={status} />
+          </div>
         </Col>
-
-        <Col s={10} m={4} l={4} offset="s1">
-          <Cart
-            cart={this.state.currentOrderContent}
-            user={this.state.user}
-            status={status}
-          />
+        <Col s={10} m={8} l={4} offset="s1 m2">
+          <div className="cpCart">
+            <Cart
+              cart={this.state.currentOrderContent}
+              user={this.state.user}
+              status={status}
+            />
+          </div>
         </Col>
       </Row>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CardPanel } from "react-materialize";
+import { HOST, port } from "../../constants";
 
 import "./Orders.css";
 import auth from "../../utils/auth";
@@ -17,7 +18,7 @@ class Orders extends Component {
     const userId = auth.getUserId();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/orders`
+        `http://${HOST}:${port}/api/user/${userId}/orders`
       );
       const { success, history } = await response.json();
       if (!success) return;

@@ -3,6 +3,7 @@ import { Row, Col } from "react-materialize";
 import { Cart } from "../cart/Cart";
 
 import "./OrderPage.css";
+import { HOST, port } from "../../constants";
 import auth from "../../utils/auth";
 const fetch = auth.authFetch;
 
@@ -23,7 +24,7 @@ class OrderPage extends Component {
     // Get products to display
     try {
       const response = await fetch(
-        `http://localhost:5000/api/product?brand=${
+        `http://${HOST}:${port}/api/product?brand=${
           this.props.match.params.brand
         }&category=${this.props.match.params.category}`
       );
@@ -37,7 +38,7 @@ class OrderPage extends Component {
     // Get current user
     const userId = auth.getUserId();
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const response = await fetch(`http://${HOST}:${port}/api/user/${userId}`);
       const { success, user } = await response.json();
 
       if (!success) return;
@@ -49,7 +50,7 @@ class OrderPage extends Component {
     // Get current user cart
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`
+        `http://${HOST}:${port}/api/user/${userId}/product`
       );
       const { success, cart } = await response.json();
       if (!success) return;
@@ -61,7 +62,7 @@ class OrderPage extends Component {
     // Check if current user has active order
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`
+        `http://${HOST}:${port}/api/user/${userId}/order`
       );
       const { success, orderStatus, orderProducts } = await response.json();
 
@@ -80,7 +81,7 @@ class OrderPage extends Component {
   addToCartHandler = async (userId, productId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product?product_id=${productId}`,
+        `http://${HOST}:${port}/api/user/${userId}/product?product_id=${productId}`,
         {
           method: "POST"
         }
@@ -93,7 +94,7 @@ class OrderPage extends Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`
+        `http://${HOST}:${port}/api/user/${userId}/product`
       );
       const { success, cart } = await response.json();
       if (!success) return;
@@ -106,7 +107,7 @@ class OrderPage extends Component {
   removeFromCartHandler = async (userId, productId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product/${productId}`,
+        `http://${HOST}:${port}/api/user/${userId}/product/${productId}`,
         {
           method: "DELETE"
         }
@@ -119,7 +120,7 @@ class OrderPage extends Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`
+        `http://${HOST}:${port}/api/user/${userId}/product`
       );
       const { success, cart } = await response.json();
       if (!success) return;
@@ -133,7 +134,7 @@ class OrderPage extends Component {
     // Send order creation request to backend
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`,
+        `http://${HOST}:${port}/api/user/${userId}/order`,
         {
           method: "POST"
         }
@@ -147,7 +148,7 @@ class OrderPage extends Component {
     // Send clear cart request to backend
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/product`,
+        `http://${HOST}:${port}/api/user/${userId}/product`,
         {
           method: "DELETE"
         }

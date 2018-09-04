@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Category.css";
 import auth from "../../utils/auth";
+import { HOST, port } from "../../constants";
 const fetch = auth.authFetch;
 
 class Category extends Component {
@@ -16,7 +17,7 @@ class Category extends Component {
   fetchBrands = async props => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/brand?category=${
+        `http://${HOST}:${port}/api/brand?category=${
           props.match.params.category
         }`
       );

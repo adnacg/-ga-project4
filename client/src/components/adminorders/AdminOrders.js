@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { CardPanel, Button, Col, Row } from "react-materialize";
 
+import { HOST, port } from "../../constants";
+
 import "./AdminOrders.css";
 import auth from "../../utils/auth";
 import { Link } from "react-router-dom";
@@ -16,7 +18,7 @@ class AdminOrders extends Component {
 
   componentDidMount = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders`);
+      const response = await fetch(`http://${HOST}:${port}/api/orders`);
       const { success, history } = await response.json();
       if (!success) return;
       this.setState({ orders: history });
@@ -28,7 +30,7 @@ class AdminOrders extends Component {
   handleAutoSend = async orderId => {
     // POST request
     const response = await fetch(
-      `http://localhost:5000/api/order/${orderId}/dispatch`,
+      `http://${HOST}:${port}/api/order/${orderId}/dispatch`,
       {
         method: "POST"
       }
@@ -100,7 +102,7 @@ class AdminOrders extends Component {
 
     return (
       <div>
-        <p className="adminOrderTitle">MASTER ORDERS</p>
+        <p className="adminOrderTitle">ADMIN DASHBOARD</p>
         <div className="adminOrderItemsDiv">{orderPreviews}</div>
       </div>
     );

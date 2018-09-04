@@ -54,3 +54,13 @@
   background-color: #709fb0;
   color: #f4e8c1;
 }
+
+@media only screen and (max-width: 736px) {
+  .cpMap {
+    display: flex;
+    justify-content: center;
+  }
+  .cpCart {
+    margin-left: 2rem;
+  }
+}

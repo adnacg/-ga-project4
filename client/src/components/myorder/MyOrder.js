@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-materialize";
 import { Map } from "../map/Map";
 import { Cart } from "../cart/Cart";
+import { HOST, port } from "../../constants";
 
 import { subscribeToPose, unsubscribeToPose } from "../../utils/ws";
 
@@ -27,7 +28,7 @@ class MyOrder extends Component {
     // Get current user
     const userId = auth.getUserId();
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const response = await fetch(`http://${HOST}:${port}/api/user/${userId}`);
       const { success, user } = await response.json();
       if (!success) return;
       this.setState({ user });
@@ -38,7 +39,7 @@ class MyOrder extends Component {
     // Get current user order
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${userId}/order`
+        `http://${HOST}:${port}/api/user/${userId}/order`
       );
       const {
         success,

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Input } from "react-materialize";
 
 import "./Profile.css";
+import { HOST, port } from "../../constants";
 import auth from "../../utils/auth";
 const fetch = auth.authFetch;
 
@@ -17,7 +18,7 @@ class Profile extends Component {
     const userId = auth.getUserId();
     // Get current user
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const response = await fetch(`http://${HOST}:${port}/api/user/${userId}`);
       const { success, user } = await response.json();
       if (!success) return;
       this.setState({ user });
@@ -44,7 +45,7 @@ class Profile extends Component {
     if (validForm) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/user/${this.state.user.id}/update`,
+          `http://${HOST}:${port}/api/user/${this.state.user.id}/update`,
           {
             method: "POST",
             headers: {
