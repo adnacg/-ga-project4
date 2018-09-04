@@ -29,6 +29,7 @@ const auth = {
 
       auth.setUserId(userId, true);
       auth.setUserRole(userRole, true);
+
       return true;
     } catch (error) {
       console.log(error);

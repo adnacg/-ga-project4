@@ -45,6 +45,7 @@ let createAuthControllers = db => {
                 ]
               });
             }
+
             response.json({
               success: true,
               token

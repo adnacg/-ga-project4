@@ -20,6 +20,12 @@
   background-color: #f4e8c1;
 }
 
+@media only screen and (max-width: 480px) {
+  .adminOrderItems {
+    width: 100%;
+  }
+}
+
 .orderActiveBtn,
 .orderActiveBtn:active,
 .orderActiveBtn:focus {

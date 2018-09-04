@@ -84,7 +84,7 @@ class ControlPanel extends Component {
           <Map x={x} y={y} status={status} />
         </Col>
 
-        <Col s={12} m={4} l={4}>
+        <Col s={10} m={4} l={4} offset="s1">
           <Cart
             cart={this.state.currentOrderContent}
             user={this.state.user}

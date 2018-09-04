@@ -195,7 +195,7 @@ class OrderPage extends Component {
           {this.props.match.params.brand.toUpperCase()}
         </p>
         <Row>
-          <Col s={8} m={8}>
+          <Col s={12} m={10} l={8} offset="m1">
             <div className="mainOrderDiv">
               {productPreviews.length > 0 ? (
                 productPreviews
@@ -205,7 +205,7 @@ class OrderPage extends Component {
             </div>
           </Col>
 
-          <Col s={4} m={4}>
+          <Col s={10} m={10} l={4} offset="s1 m1">
             <div className="orderpageCart">
               {this.state.currentOrderContent ? (
                 <Cart
